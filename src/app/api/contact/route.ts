@@ -1,6 +1,11 @@
 import { NextResponse } from "next/server";
-import nodemailer from "nodemailer";
 import { z } from "zod";
+import {
+  createMailTransport,
+  escapeHtml,
+  isSmtpConfigured,
+  smtpPublicErrorMessage,
+} from "@/lib/mail";
 import { rateLimit } from "@/lib/rate-limit";
 
 const contactSchema = z.object({
@@ -17,17 +22,6 @@ function getClientIp(request: Request) {
     request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
     request.headers.get("x-real-ip") ||
     "unknown"
-  );
-}
-
-function isSmtpConfigured() {
-  return Boolean(
-    process.env.SMTP_HOST &&
-      process.env.SMTP_PORT &&
-      process.env.SMTP_USER &&
-      process.env.SMTP_PASS &&
-      process.env.CONTACT_TO_EMAIL &&
-      process.env.CONTACT_FROM_EMAIL,
   );
 }
 
@@ -56,7 +50,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ message: "Thank you. Your message has been sent." });
     }
 
-    if (!isSmtpConfigured()) {
+    if (!isSmtpConfigured() || !process.env.CONTACT_TO_EMAIL) {
       console.error(
         "[contact] SMTP is not fully configured. Set SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, CONTACT_TO_EMAIL, CONTACT_FROM_EMAIL.",
       );
@@ -69,36 +63,15 @@ export async function POST(request: Request) {
       );
     }
 
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: Number(process.env.SMTP_PORT),
-      secure: Number(process.env.SMTP_PORT) === 465,
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-    });
-
+    const transporter = createMailTransport();
     const { name, email, phone, subject, message } = parsed.data;
-    const safe = (value: string) =>
-      value.replace(/[<>&]/g, (char) => {
-        switch (char) {
-          case "<":
-            return "&lt;";
-          case ">":
-            return "&gt;";
-          case "&":
-            return "&amp;";
-          default:
-            return char;
-        }
-      });
+    const safe = escapeHtml;
 
     await transporter.sendMail({
-      from: process.env.CONTACT_FROM_EMAIL,
+      from: `"Legacy on Lark" <${process.env.CONTACT_FROM_EMAIL}>`,
       to: process.env.CONTACT_TO_EMAIL,
       replyTo: email,
-      subject: `[Legacy on Lark] ${safe(subject)}`,
+      subject: `[Legacy on Lark] ${subject}`,
       text: [
         `Name: ${name}`,
         `Email: ${email}`,
@@ -121,7 +94,7 @@ export async function POST(request: Request) {
   } catch (error) {
     console.error("[contact] Failed to process contact form.", error);
     return NextResponse.json(
-      { message: "Unable to send your message right now." },
+      { message: smtpPublicErrorMessage(error) },
       { status: 500 },
     );
   }

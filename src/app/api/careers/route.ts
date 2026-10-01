@@ -1,7 +1,12 @@
 import { NextResponse } from "next/server";
-import nodemailer from "nodemailer";
 import { z } from "zod";
 import { siteConfig } from "@/config/site";
+import {
+  createMailTransport,
+  escapeHtml,
+  isSmtpConfigured,
+  smtpPublicErrorMessage,
+} from "@/lib/mail";
 import { rateLimit } from "@/lib/rate-limit";
 
 const MAX_RESUME_BYTES = 5 * 1024 * 1024;
@@ -30,16 +35,6 @@ function getClientIp(request: Request) {
     request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
     request.headers.get("x-real-ip") ||
     "unknown"
-  );
-}
-
-function isSmtpConfigured() {
-  return Boolean(
-    process.env.SMTP_HOST &&
-      process.env.SMTP_PORT &&
-      process.env.SMTP_USER &&
-      process.env.SMTP_PASS &&
-      process.env.CONTACT_FROM_EMAIL,
   );
 }
 
@@ -128,37 +123,15 @@ export async function POST(request: Request) {
     const job = siteConfig.careers.find((item) => item.id === parsed.data.role);
     const roleTitle = job?.title || parsed.data.role;
     const resumeBuffer = Buffer.from(await resumeEntry.arrayBuffer());
-
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: Number(process.env.SMTP_PORT),
-      secure: Number(process.env.SMTP_PORT) === 465,
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-    });
-
+    const transporter = createMailTransport();
     const { name, email, phone, experience, availability, message } = parsed.data;
-    const safe = (value: string) =>
-      value.replace(/[<>&]/g, (char) => {
-        switch (char) {
-          case "<":
-            return "&lt;";
-          case ">":
-            return "&gt;";
-          case "&":
-            return "&amp;";
-          default:
-            return char;
-        }
-      });
+    const safe = escapeHtml;
 
     await transporter.sendMail({
-      from: process.env.CONTACT_FROM_EMAIL,
+      from: `"Legacy on Lark Careers" <${process.env.CONTACT_FROM_EMAIL}>`,
       to: careersInbox(),
       replyTo: email,
-      subject: `[Careers] ${safe(roleTitle)} — ${safe(name)}`,
+      subject: `[Careers] ${roleTitle} — ${name}`,
       text: [
         `Role: ${roleTitle}`,
         `Name: ${name}`,
@@ -200,7 +173,7 @@ export async function POST(request: Request) {
   } catch (error) {
     console.error("[careers] Failed to process application.", error);
     return NextResponse.json(
-      { message: "Unable to send your application right now." },
+      { message: smtpPublicErrorMessage(error) },
       { status: 500 },
     );
   }
