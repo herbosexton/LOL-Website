@@ -23,7 +23,7 @@ export default function DeliveryPage() {
       <ImageHero
         eyebrow="Delivery"
         title="Elevated Delivery Across the Capital Region"
-        copy="Browse the menu, place your order, and get it delivered in supported areas—adults 21+ with valid ID."
+        copy="Browse the menu, place your order, and get it delivered in supported areas - adults 21+ with valid ID."
         image="/images/delivery/hero.jpg"
         alt="Refined green backdrop introducing Legacy on Lark delivery"
       />

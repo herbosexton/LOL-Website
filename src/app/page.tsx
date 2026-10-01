@@ -48,11 +48,11 @@ export default function HomePage() {
               <SectionHeading
                 eyebrow="Welcome"
                 title="More than a dispensary"
-                subtitle="Cannabis, culture, community, education, and human connection—woven into one inviting house on Lark."
+                subtitle="Cannabis, culture, community, education, and human connection - woven into one inviting house on Lark."
               />
               <p>
                 Beautiful. Warm. Confident. The feeling of walking into the cool,
-                successful aunt&apos;s home—premium without pretension.
+                successful aunt&apos;s home - premium without pretension.
               </p>
               <Button href="/about" variant="outline">
                 Our story
@@ -73,7 +73,7 @@ export default function HomePage() {
               align="center"
               eyebrow="AI Guide"
               title="Find what fits you"
-              subtitle="Learn the fundamentals—from terpenes to effects—then explore a calm, guided matching experience."
+              subtitle="Learn the fundamentals - from terpenes to effects - then explore a calm, guided matching experience."
             />
             <Button href="/ai-guide" variant="primary">
               Explore AI Guide
@@ -122,7 +122,7 @@ export default function HomePage() {
             </p>
             <h2 className={styles.kultureTitle}>Kulture</h2>
             <p>
-              History, creativity, ownership, and joy—told with quiet confidence.
+              History, creativity, ownership, and joy - told with quiet confidence.
             </p>
             <Button href="/kulture" variant="gold">
               Explore Kulture
@@ -186,7 +186,7 @@ export default function HomePage() {
             <SectionHeading
               eyebrow="Visit"
               title="Come see us on Lark"
-              subtitle="A premium cannabis dispensary in the heart of Albany—ready when you are."
+              subtitle="A premium cannabis dispensary in the heart of Albany - ready when you are."
             />
           </Reveal>
           <Reveal variant="right" delay={2}>

@@ -24,10 +24,10 @@ npm run dev
 
 Scripts:
 
-- `npm run dev` — development server
-- `npm run build` — production build
-- `npm start` — start production server (respects `PORT`)
-- `npm run lint` — ESLint
+- `npm run dev` - development server
+- `npm run build` - production build
+- `npm start` - start production server (respects `PORT`)
+- `npm run lint` - ESLint
 
 ## Environment variables
 
@@ -53,13 +53,13 @@ Includes address, hours, phone, email, maps, social links, delivery areas, categ
 
 Place files under:
 
-- `public/images/` — general / hero / OG
-- `public/images/products/` — category mosaic
+- `public/images/` - general / hero / OG
+- `public/images/products/` - category mosaic
 - `public/images/kulture/`
 - `public/images/about/`
 - `public/images/delivery/`
 - `public/images/blog/`
-- `public/images/logo.svg` — brand logo
+- `public/images/logo.svg` - brand logo
 
 Keep filenames in sync with `src/config/site.ts` and page references, or update those paths when renaming.
 

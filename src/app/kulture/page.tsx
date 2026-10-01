@@ -8,7 +8,7 @@ import styles from "./page.module.css";
 export const metadata = createMetadata({
   title: "Kulture",
   description:
-    "Kulture at Legacy on Lark—an editorial space for Black culture, creativity, community, history, and legacy in Albany, NY.",
+    "Kulture at Legacy on Lark - an editorial space for Black culture, creativity, community, history, and legacy in Albany, NY.",
   path: "/kulture",
 });
 
@@ -19,7 +19,7 @@ export default function KulturePage() {
       <ImageHero
         eyebrow="Kulture"
         title="Legacy Lives in Culture"
-        copy="A late-night jazz lounge energy meets Black-owned gallery calm—creative, confident, and expansive."
+        copy="A late-night jazz lounge energy meets Black-owned gallery calm - creative, confident, and expansive."
         image="/images/kulture/hero.jpg"
         alt="Cinematic near-black Kulture hero atmosphere"
       />
@@ -33,7 +33,7 @@ export default function KulturePage() {
             Kulture represents Black culture broadly through history, family,
             community, creativity, music, art, entrepreneurship, fashion, food,
             language, joy, resilience, innovation, ownership, connection, legacy,
-            and future. Cannabis is one part of the story—not the whole frame.
+            and future. Cannabis is one part of the story - not the whole frame.
           </p>
         </div>
       </section>
@@ -65,7 +65,7 @@ export default function KulturePage() {
             <h2>Rhythm</h2>
             <p className={styles.copy}>
               Jazz, hip-hop, vinyl, studio sessions, spoken word, performance,
-              and creative expression—rhythm as language, not stereotype.
+              and creative expression - rhythm as language, not stereotype.
             </p>
           </div>
           <div className={styles.media}>
@@ -89,7 +89,7 @@ export default function KulturePage() {
         </div>
         <div className={styles.grid}>
           <CultureCard title="Art & Ownership">
-            Creative practice as authorship—gallery walls, design, and the right
+            Creative practice as authorship - gallery walls, design, and the right
             to define the room.
           </CultureCard>
           <CultureCard title="Language & Joy">
@@ -97,7 +97,7 @@ export default function KulturePage() {
             motion.
           </CultureCard>
           <CultureCard title="Future Builders">
-            Innovation with memory—building institutions, businesses, and
+            Innovation with memory - building institutions, businesses, and
             gatherings for the next generation.
           </CultureCard>
         </div>
@@ -151,7 +151,7 @@ export default function KulturePage() {
             <h2>Cannabis + Cultural History</h2>
             <p className={styles.copy}>
               Cannabis intersects with culture, policy, and community memory. We
-              hold that history with care—celebrating creativity and ownership
+              hold that history with care - celebrating creativity and ownership
               while refusing to flatten Black culture into cannabis alone.
             </p>
           </div>

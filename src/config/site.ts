@@ -29,17 +29,17 @@ export const siteConfig = {
     formatted: "260 Lark St, Albany, NY 12210",
   },
 
-  // Leave empty until confirmed — UI hides empty fields (do not invent).
+  // Leave empty until confirmed - UI hides empty fields (do not invent).
   phone: "" as string,
   email: "" as string,
   hours: [
-    { label: "Monday", value: "8am–10pm" },
-    { label: "Tuesday", value: "8am–10pm" },
-    { label: "Wednesday", value: "8am–10pm" },
-    { label: "Thursday", value: "8am–10pm" },
-    { label: "Friday", value: "8am–11pm" },
-    { label: "Saturday", value: "9am–11pm" },
-    { label: "Sunday", value: "11am–6am" },
+    { label: "Monday", value: "8am-10pm" },
+    { label: "Tuesday", value: "8am-10pm" },
+    { label: "Wednesday", value: "8am-10pm" },
+    { label: "Thursday", value: "8am-10pm" },
+    { label: "Friday", value: "8am-11pm" },
+    { label: "Saturday", value: "9am-11pm" },
+    { label: "Sunday", value: "11am-6am" },
   ] as StoreHours[],
 
   maps: {
@@ -196,7 +196,7 @@ export const siteConfig = {
       id: "humulene",
       name: "Humulene",
       description:
-        "Earthy and woodsy with herbal depth—often associated with grounding, aromatic profiles.",
+        "Earthy and woodsy with herbal depth - often associated with grounding, aromatic profiles.",
       href: "/ai-guide#terpenes",
       icon: "humulene",
     },
@@ -204,7 +204,7 @@ export const siteConfig = {
       id: "eucalyptol",
       name: "Eucalyptol",
       description:
-        "Cool, minty, and clarifying—known for a crisp aromatic lift.",
+        "Cool, minty, and clarifying - known for a crisp aromatic lift.",
       href: "/ai-guide#terpenes",
       icon: "eucalyptol",
     },
@@ -220,7 +220,7 @@ export const siteConfig = {
       id: "terpinolene",
       name: "Terpinolene",
       description:
-        "Fresh, floral, and herbal—often linked to bright, uplifting aromatic expressions.",
+        "Fresh, floral, and herbal - often linked to bright, uplifting aromatic expressions.",
       href: "/ai-guide#terpenes",
       icon: "terpinolene",
     },
@@ -304,7 +304,7 @@ export const siteConfig = {
     "Redefine legacy through a premium cannabis experience that elevates culture, connects community and inspires growth.",
 
   vision:
-    "To be Albany’s most trusted, culturally rooted cannabis destination—where education, technology, and human connection create belonging.",
+    "To be Albany’s most trusted, culturally rooted cannabis destination - where education, technology, and human connection create belonging.",
 
   values: [
     {
@@ -339,7 +339,7 @@ export const siteConfig = {
       title: "Budtender",
       type: "Full-time / Part-time",
       summary:
-        "Guide guests with warmth, product knowledge, and the hospitality of a house that feels like home—premium without pretension.",
+        "Guide guests with warmth, product knowledge, and the hospitality of a house that feels like home - premium without pretension.",
       responsibilities: [
         "Welcome guests 21+ and create a calm, confident retail experience",
         "Recommend products based on preferences, effects, and education",
@@ -358,7 +358,7 @@ export const siteConfig = {
       title: "Inventory Specialist",
       type: "Full-time",
       summary:
-        "Own the back-of-house rhythm—receiving, tracking, and protecting inventory so the floor stays accurate and audit-ready.",
+        "Own the back-of-house rhythm - receiving, tracking, and protecting inventory so the floor stays accurate and audit-ready.",
       responsibilities: [
         "Receive, verify, and organize incoming product shipments",
         "Maintain inventory accuracy across rooms, counts, and transfers",
@@ -415,7 +415,7 @@ export const siteConfig = {
       id: "different",
       question: "What makes LOL different from other dispensaries?",
       answer:
-        "Legacy on Lark is rooted in family, trust, culture, and intentional hospitality. We focus on premium products, education, community, and a warm Albany experience that feels personal—not corporate.",
+        "Legacy on Lark is rooted in family, trust, culture, and intentional hospitality. We focus on premium products, education, community, and a warm Albany experience that feels personal - not corporate.",
     },
     {
       id: "id",

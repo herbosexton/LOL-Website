@@ -19,7 +19,7 @@ export default function NewsPage() {
       <ImageHero
         eyebrow="News"
         title="Stories Worth Sharing"
-        copy="Educational articles and community notes—automatically listed from our content library."
+        copy="Educational articles and community notes - automatically listed from our content library."
         image="/images/blog/cannabis-fundamentals.jpg"
         alt="Editorial imagery introducing Legacy on Lark news"
         compact

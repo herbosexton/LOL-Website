@@ -34,7 +34,7 @@ export function CategoryMosaic() {
           align="center"
           eyebrow="The Menu"
           title="Find what fits"
-          subtitle="A calm, curated path into the shop—photography that respects every product."
+          subtitle="A calm, curated path into the shop - photography that respects every product."
         />
         <h2 id="categories-heading" className="sr-only">
           Product categories
