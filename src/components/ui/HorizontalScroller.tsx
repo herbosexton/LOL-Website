@@ -7,9 +7,11 @@ import styles from "./HorizontalScroller.module.css";
 export function HorizontalScroller({
   children,
   label,
+  align = "center",
 }: {
   children: ReactNode;
   label: string;
+  align?: "center" | "start";
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const drag = useRef({ active: false, startX: 0, scrollLeft: 0 });
@@ -41,7 +43,7 @@ export function HorizontalScroller({
     <div className={styles.wrap}>
       <div
         ref={ref}
-        className={styles.scroller}
+        className={align === "start" ? styles.scrollerStart : styles.scroller}
         role="region"
         aria-label={label}
         onPointerDown={onPointerDown}

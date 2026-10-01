@@ -117,7 +117,7 @@ export const siteConfig = {
     {
       id: "flower",
       title: "Flower",
-      href: "/shop",
+      href: `${menuUrl.replace(/\/$/, "")}/categories/flower/`,
       cta: "Shop",
       image: "/images/products/flower.jpg",
       alt: "Premium cannabis flower bag and buds",
@@ -128,7 +128,7 @@ export const siteConfig = {
     {
       id: "prerolls",
       title: "Pre-Rolls",
-      href: "/shop",
+      href: `${menuUrl.replace(/\/$/, "")}/categories/prerolls/`,
       cta: "Shop",
       image: "/images/products/prerolls.jpg",
       alt: "Legacy on Lark pre-roll tube and joint",
@@ -138,8 +138,8 @@ export const siteConfig = {
     },
     {
       id: "infusion",
-      title: "Infusion",
-      href: "/shop",
+      title: "Drinks",
+      href: `${menuUrl.replace(/\/$/, "")}/categories/drinks/`,
       cta: "Shop",
       image: "/images/products/infusion.jpg",
       alt: "Cannabis infusion beverage can",
@@ -150,7 +150,7 @@ export const siteConfig = {
     {
       id: "edibles",
       title: "Edibles",
-      href: "/shop",
+      href: `${menuUrl.replace(/\/$/, "")}/categories/edibles/`,
       cta: "Shop",
       image: "/images/products/edibles.jpg",
       alt: "Cannabis edibles pouch with gummies on a dark marble surface",
@@ -160,8 +160,8 @@ export const siteConfig = {
     },
     {
       id: "vaporizers",
-      title: "Vaporizers",
-      href: "/shop",
+      title: "Vapes",
+      href: `${menuUrl.replace(/\/$/, "")}/categories/vapes/`,
       cta: "Shop",
       image: "/images/products/vaporizers.jpg",
       alt: "Sleek vaporizer styled on a forest-green surface",
@@ -171,11 +171,11 @@ export const siteConfig = {
     },
     {
       id: "accessories",
-      title: "Accessories",
-      href: "/shop",
+      title: "Chocolate",
+      href: `${menuUrl.replace(/\/$/, "")}/categories/chocolate/`,
       cta: "Shop",
       image: "/images/products/accessories.jpg",
-      alt: "Legacy on Lark gold accessories tray, grinder, and lighter",
+      alt: "Cannabis chocolate bar styled for the Legacy on Lark menu",
       mediaMode: "cover",
       objectPosition: "50% 50%",
       overlay: true,
@@ -183,7 +183,7 @@ export const siteConfig = {
     {
       id: "tinctures",
       title: "Tinctures",
-      href: "/shop",
+      href: `${menuUrl.replace(/\/$/, "")}/categories/tinctures/`,
       cta: "Shop",
       image: "/images/products/tinctures.jpg",
       alt: "Premium cannabis tincture bottles with gold droppers",

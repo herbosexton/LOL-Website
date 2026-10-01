@@ -1,6 +1,8 @@
 .section {
   padding-block: clamp(4rem, 8vw, 7rem);
-  background: linear-gradient(180deg, var(--lol-cream) 0%, #f3f0e8 100%);
+  background:
+    radial-gradient(900px 380px at 80% 0%, rgba(198, 166, 100, 0.1), transparent 55%),
+    linear-gradient(180deg, var(--lol-cream) 0%, #f3f0e8 100%);
 }
 
 .header {
@@ -9,6 +11,64 @@
   text-align: center;
   display: grid;
   justify-items: center;
+}
+
+.live {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.tabs {
+  width: var(--container-wide);
+  margin-inline: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.35rem 1.15rem;
+  padding-inline: 1rem;
+}
+
+.tab,
+.tabActive {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0.35rem 0;
+  font: inherit;
+  font-size: 0.92rem;
+  letter-spacing: -0.01em;
+  color: var(--lol-muted);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition:
+    color var(--duration) var(--ease-apple),
+    border-color var(--duration) var(--ease-apple);
+}
+
+.tabActive {
+  color: var(--lol-charcoal);
+  border-bottom-color: var(--lol-green);
+}
+
+.tab:hover,
+.tab:focus-visible {
+  color: var(--lol-charcoal);
+}
+
+.count {
+  margin-left: 0.35rem;
+  font-size: 0.72rem;
+  color: var(--lol-muted);
+}
+
+.panel {
+  min-height: 22rem;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  padding-inline: 1rem;
 }
 
 .mosaic {

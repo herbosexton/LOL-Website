@@ -18,6 +18,19 @@
   cursor: grab;
 }
 
+.scrollerStart {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 1.25rem;
+  padding-block: 0.35rem 0.75rem;
+  padding-inline: 1.25rem;
+  -webkit-overflow-scrolling: touch;
+  cursor: grab;
+}
+
 @media (max-width: 1100px) {
   .scroller {
     justify-content: flex-start;
@@ -25,15 +38,18 @@
   }
 }
 
-.scroller:active {
+.scroller:active,
+.scrollerStart:active {
   cursor: grabbing;
 }
 
-.scroller::-webkit-scrollbar {
+.scroller::-webkit-scrollbar,
+.scrollerStart::-webkit-scrollbar {
   height: 6px;
 }
 
-.scroller::-webkit-scrollbar-thumb {
+.scroller::-webkit-scrollbar-thumb,
+.scrollerStart::-webkit-scrollbar-thumb {
   background: rgba(45, 71, 57, 0.35);
   border-radius: 999px;
 }

@@ -1,9 +1,37 @@
 import { CategoryCard } from "@/components/ui/CategoryCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { siteConfig } from "@/config/site";
+import { getLiveMenuByCategory } from "@/lib/blaze/menu";
+import { LiveMenuBrowser } from "./LiveMenuBrowser";
 import styles from "./CategoryMosaic.module.css";
 
-export function CategoryMosaic() {
+export async function CategoryMosaic() {
+  const liveCategories = await getLiveMenuByCategory(12);
+
+  return (
+    <section className={styles.section} aria-labelledby="categories-heading">
+      <div className={styles.header}>
+        <SectionHeading
+          align="center"
+          eyebrow="The Menu"
+          title="Find what fits"
+          subtitle="Live products from the Legacy on Lark shop, grouped the way we stock them."
+        />
+        <h2 id="categories-heading" className="sr-only">
+          Product categories
+        </h2>
+      </div>
+
+      {liveCategories.length > 0 ? (
+        <LiveMenuBrowser categories={liveCategories} />
+      ) : (
+        <StaticCategoryFallback />
+      )}
+    </section>
+  );
+}
+
+function StaticCategoryFallback() {
   const byId = Object.fromEntries(
     siteConfig.categories.map((item) => [item.id, item]),
   );
@@ -28,18 +56,7 @@ export function CategoryMosaic() {
   }
 
   return (
-    <section className={styles.section} aria-labelledby="categories-heading">
-      <div className={styles.header}>
-        <SectionHeading
-          align="center"
-          eyebrow="The Menu"
-          title="Find what fits"
-          subtitle="A calm, curated path into the shop, photography that respects every product."
-        />
-        <h2 id="categories-heading" className="sr-only">
-          Product categories
-        </h2>
-      </div>
+    <>
       <div className={styles.mosaic}>
         <div className={styles.flower}>
           <CategoryCard item={flower} priority />
@@ -61,6 +78,6 @@ export function CategoryMosaic() {
         <CategoryCard item={accessories} />
         <CategoryCard item={tinctures} />
       </div>
-    </section>
+    </>
   );
 }
