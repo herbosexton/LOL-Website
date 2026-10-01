@@ -1,20 +1,28 @@
 {
-  "name": "temp-scaffold",
-  "version": "0.1.0",
+  "name": "lol-website",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build --webpack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint ."
+  },
+  "engines": {
+    "node": ">=20.9.0"
   },
   "dependencies": {
+    "gray-matter": "^4.0.3",
     "next": "16.3.8",
+    "next-mdx-remote": "^5.0.0",
+    "nodemailer": "^7.0.6",
     "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react-dom": "19.2.8",
+    "zod": "^4.1.11"
   },
   "devDependencies": {
     "@types/node": "^20",
+    "@types/nodemailer": "^7.0.1",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",

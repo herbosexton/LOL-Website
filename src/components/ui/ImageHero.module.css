@@ -1,0 +1,54 @@
+.hero {
+  position: relative;
+  min-height: min(72vh, 720px);
+  min-height: min(72svh, 720px);
+  display: grid;
+  align-items: end;
+  color: var(--lol-cream);
+  overflow: hidden;
+  background: var(--lol-black);
+}
+
+.compact {
+  min-height: min(48vh, 480px);
+  min-height: min(48svh, 480px);
+}
+
+.media,
+.overlay {
+  position: absolute;
+  inset: 0;
+}
+
+.media img {
+  object-fit: cover;
+}
+
+.overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(8, 8, 8, 0.2) 0%,
+    rgba(8, 8, 8, 0.72) 100%
+  );
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  width: var(--container);
+  margin-inline: auto;
+  padding: calc(var(--header-h) + 2rem) 0 3rem;
+  display: grid;
+  gap: 1rem;
+  max-width: 42rem;
+}
+
+.title {
+  font-size: var(--text-3xl);
+}
+
+.copy {
+  font-size: var(--text-md);
+  color: rgba(249, 247, 242, 0.82);
+  max-width: 36rem;
+}

@@ -1,0 +1,123 @@
+.section {
+  padding-block: clamp(3.5rem, 6vw, 6rem);
+}
+
+.inner {
+  width: var(--container);
+  margin-inline: auto;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.grid2 {
+  width: var(--container);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: center;
+}
+
+.grid3 {
+  width: var(--container);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.prose {
+  display: grid;
+  gap: 1rem;
+  color: rgba(43, 43, 43, 0.8);
+  font-size: var(--text-md);
+  max-width: 42rem;
+}
+
+.card {
+  background: var(--lol-white);
+  padding: 1.5rem;
+  border-top: 2px solid var(--lol-gold);
+  display: grid;
+  gap: 0.75rem;
+  height: 100%;
+}
+
+.card h3 {
+  font-size: var(--text-lg);
+}
+
+.card p {
+  color: rgba(43, 43, 43, 0.75);
+  font-size: var(--text-sm);
+}
+
+.media {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--lol-charcoal);
+}
+
+.media img {
+  object-fit: cover;
+}
+
+.darkBand {
+  background: #000;
+  color: var(--lol-cream);
+}
+
+.darkBand .prose,
+.darkCopy {
+  color: rgba(249, 247, 242, 0.78);
+}
+
+.pillList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.pill {
+  border: 1px solid rgba(45, 71, 57, 0.25);
+  padding: 0.55rem 0.9rem;
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+  background: var(--lol-white);
+}
+
+.steps {
+  width: var(--container);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  counter-reset: step;
+}
+
+.step {
+  background: var(--lol-white);
+  padding: 1.5rem;
+  display: grid;
+  gap: 0.75rem;
+  border-left: 2px solid var(--lol-gold);
+}
+
+.step::before {
+  counter-increment: step;
+  content: "0" counter(step);
+  font-family: var(--font-display);
+  color: var(--lol-gold);
+  font-size: var(--text-xl);
+}
+
+@media (max-width: 900px) {
+  .grid2,
+  .grid3,
+  .steps {
+    grid-template-columns: 1fr;
+  }
+}

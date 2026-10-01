@@ -1,0 +1,61 @@
+.card {
+  display: grid;
+  gap: 0.95rem;
+  height: 100%;
+}
+
+.media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--lol-green-deep);
+  border-radius: var(--radius-lg);
+}
+
+.media img {
+  object-fit: cover;
+  transition: transform 1.1s var(--ease-apple);
+}
+
+.card:hover .media img {
+  transform: scale(1.03);
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--lol-clay);
+  font-weight: 500;
+}
+
+.title {
+  font-size: var(--text-lg);
+  color: var(--lol-charcoal);
+  letter-spacing: -0.025em;
+}
+
+.excerpt {
+  color: var(--lol-muted);
+  font-size: var(--text-sm);
+}
+
+.more {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--lol-green);
+}
+
+.more::after {
+  content: " ›";
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card:hover .media img {
+    transform: none;
+  }
+}

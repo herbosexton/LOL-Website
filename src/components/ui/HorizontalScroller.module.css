@@ -1,0 +1,39 @@
+.wrap {
+  display: grid;
+  gap: 1rem;
+  width: var(--container-wide);
+  margin-inline: auto;
+}
+
+.scroller {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 50%;
+  padding-block: 0.35rem 0.75rem;
+  padding-inline: 1.25rem;
+  -webkit-overflow-scrolling: touch;
+  cursor: grab;
+}
+
+@media (max-width: 1100px) {
+  .scroller {
+    justify-content: flex-start;
+    padding-inline: max(1.25rem, calc(50vw - min(39vw, 150px)));
+  }
+}
+
+.scroller:active {
+  cursor: grabbing;
+}
+
+.scroller::-webkit-scrollbar {
+  height: 6px;
+}
+
+.scroller::-webkit-scrollbar-thumb {
+  background: rgba(45, 71, 57, 0.35);
+  border-radius: 999px;
+}

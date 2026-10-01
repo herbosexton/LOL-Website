@@ -1,0 +1,36 @@
+.section {
+  padding-block: clamp(5.5rem, 11vw, 9.5rem);
+  background:
+    radial-gradient(800px 360px at 50% 0%, rgba(198, 166, 100, 0.14), transparent 55%),
+    linear-gradient(180deg, #101815, var(--lol-black));
+  color: var(--lol-cream);
+  text-align: center;
+}
+
+.inner {
+  width: var(--container);
+  margin-inline: auto;
+  display: grid;
+  gap: 1.35rem;
+  justify-items: center;
+}
+
+.title {
+  font-size: var(--text-2xl);
+  max-width: 14ch;
+  letter-spacing: -0.04em;
+}
+
+.copy {
+  max-width: 30rem;
+  color: rgba(249, 247, 242, 0.68);
+  font-size: var(--text-md);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  justify-content: center;
+  margin-top: 0.75rem;
+}

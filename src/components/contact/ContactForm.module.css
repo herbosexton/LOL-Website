@@ -1,0 +1,24 @@
+.form {
+  display: grid;
+  gap: 1rem;
+  padding: 1.75rem;
+  background: var(--lol-white);
+  border: 1px solid rgba(43, 43, 43, 0.08);
+  box-shadow: var(--shadow-soft);
+}
+
+.status {
+  padding: 0.9rem 1rem;
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+}
+
+.success {
+  background: rgba(45, 71, 57, 0.1);
+  color: var(--lol-green-deep);
+}
+
+.error {
+  background: rgba(139, 46, 46, 0.08);
+  color: #8b2e2e;
+}

@@ -1,0 +1,48 @@
+.field {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--lol-charcoal);
+}
+
+.optional {
+  font-weight: 400;
+  color: rgba(43, 43, 43, 0.55);
+}
+
+.control {
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid rgba(43, 43, 43, 0.18);
+  border-radius: var(--radius-md);
+  background: var(--lol-white);
+  color: var(--lol-charcoal);
+}
+
+.control:focus {
+  border-color: var(--lol-green);
+}
+
+.textarea {
+  min-height: 9rem;
+  resize: vertical;
+}
+
+.error {
+  font-size: var(--text-xs);
+  color: #8b2e2e;
+}
+
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+}

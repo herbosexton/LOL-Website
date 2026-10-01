@@ -1,0 +1,42 @@
+.wrap {
+  overflow: hidden;
+  border-block: 1px solid rgba(198, 166, 100, 0.28);
+  background: var(--lol-black);
+  color: var(--lol-cream);
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  gap: 2.5rem;
+  padding: 0.9rem 0;
+  animation: scroll 36s linear infinite;
+}
+
+.item {
+  font-size: var(--text-xs);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: rgba(249, 247, 242, 0.78);
+}
+
+.item span {
+  color: var(--lol-gold);
+  margin-right: 2.5rem;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    animation: none;
+  }
+}

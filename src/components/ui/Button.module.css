@@ -1,0 +1,122 @@
+.button {
+  --btn-bg: transparent;
+  --btn-color: inherit;
+  --btn-border: transparent;
+  --btn-shadow: none;
+  --btn-bg-hover: transparent;
+  --btn-color-hover: inherit;
+  --btn-border-hover: transparent;
+  --btn-shadow-hover: none;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-height: 2.85rem;
+  padding: 0.8rem 1.45rem;
+  border: 1px solid var(--btn-border);
+  border-radius: 980px;
+  background: var(--btn-bg);
+  color: var(--btn-color);
+  box-shadow: var(--btn-shadow);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s var(--ease-apple);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .button:hover {
+    background: var(--btn-bg-hover);
+    color: var(--btn-color-hover);
+    border-color: var(--btn-border-hover);
+    box-shadow: var(--btn-shadow-hover);
+    transform: translateY(-2px) scale(1.02);
+  }
+
+  .button:active {
+    transform: translateY(0) scale(0.99);
+  }
+}
+
+.button:focus-visible {
+  background: var(--btn-bg-hover);
+  color: var(--btn-color-hover);
+  border-color: var(--btn-border-hover);
+}
+
+.button:disabled,
+.button[aria-disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.primary {
+  --btn-bg: var(--lol-green);
+  --btn-color: var(--lol-cream);
+  --btn-border: var(--lol-green);
+  --btn-shadow: 0 10px 30px rgba(45, 71, 57, 0.18);
+  --btn-bg-hover: var(--lol-gold);
+  --btn-color-hover: var(--lol-black);
+  --btn-border-hover: var(--lol-gold);
+  --btn-shadow-hover: 0 14px 34px rgba(198, 166, 100, 0.35);
+}
+
+.secondary {
+  --btn-bg: transparent;
+  --btn-color: var(--lol-cream);
+  --btn-border: rgba(249, 247, 242, 0.45);
+  --btn-shadow: none;
+  --btn-bg-hover: var(--lol-cream);
+  --btn-color-hover: var(--lol-black);
+  --btn-border-hover: var(--lol-cream);
+  --btn-shadow-hover: 0 12px 30px rgba(249, 247, 242, 0.18);
+}
+
+.gold {
+  --btn-bg: var(--lol-gold);
+  --btn-color: var(--lol-black);
+  --btn-border: var(--lol-gold);
+  --btn-shadow: 0 10px 28px rgba(198, 166, 100, 0.28);
+  --btn-bg-hover: var(--lol-cream);
+  --btn-color-hover: var(--lol-black);
+  --btn-border-hover: var(--lol-cream);
+  --btn-shadow-hover: 0 16px 36px rgba(249, 247, 242, 0.22);
+}
+
+.outline {
+  --btn-bg: transparent;
+  --btn-color: var(--lol-charcoal);
+  --btn-border: rgba(43, 43, 43, 0.22);
+  --btn-shadow: none;
+  --btn-bg-hover: var(--lol-green);
+  --btn-color-hover: var(--lol-cream);
+  --btn-border-hover: var(--lol-green);
+  --btn-shadow-hover: 0 12px 28px rgba(45, 71, 57, 0.2);
+}
+
+.ghost {
+  --btn-bg: transparent;
+  --btn-color: var(--lol-cream);
+  --btn-border: transparent;
+  --btn-bg-hover: transparent;
+  --btn-color-hover: var(--lol-gold);
+  --btn-border-hover: transparent;
+  padding-inline: 0.35rem;
+  min-height: auto;
+  box-shadow: none;
+}
+
+.full {
+  width: 100%;
+}

@@ -1,0 +1,32 @@
+.wrap {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.address {
+  font-size: var(--text-lg);
+  line-height: 1.5;
+}
+
+.meta {
+  display: grid;
+  gap: 0.5rem;
+  color: rgba(43, 43, 43, 0.78);
+}
+
+.meta a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.light .address,
+.light .meta,
+.light .meta a {
+  color: rgba(249, 247, 242, 0.88);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}

@@ -1,0 +1,16 @@
+.card {
+  display: grid;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-top: 1px solid rgba(198, 166, 100, 0.35);
+  color: var(--lol-cream);
+}
+
+.title {
+  font-size: var(--text-xl);
+  color: var(--lol-cream);
+}
+
+.copy {
+  color: rgba(249, 247, 242, 0.72);
+}

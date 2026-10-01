@@ -1,0 +1,35 @@
+.wrap {
+  max-width: 34rem;
+}
+
+.center {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.center .subtitle {
+  margin-inline: auto;
+}
+
+.title {
+  font-size: var(--text-2xl);
+  color: var(--lol-charcoal);
+  margin-bottom: 1rem;
+  letter-spacing: -0.035em;
+}
+
+.light .title {
+  color: var(--lol-cream);
+}
+
+.subtitle {
+  font-size: var(--text-md);
+  line-height: 1.55;
+  color: var(--lol-muted);
+  max-width: 36rem;
+  font-weight: 400;
+}
+
+.light .subtitle {
+  color: rgba(249, 247, 242, 0.72);
+}

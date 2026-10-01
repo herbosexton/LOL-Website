@@ -1,0 +1,34 @@
+.card {
+  display: grid;
+  gap: 1rem;
+}
+
+.media {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--lol-charcoal);
+}
+
+.media img {
+  object-fit: cover;
+  transition: transform var(--duration-slow) var(--ease-out);
+}
+
+.card:hover .media img {
+  transform: scale(1.03);
+}
+
+.title {
+  font-size: var(--text-xl);
+}
+
+.copy {
+  color: rgba(43, 43, 43, 0.78);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card:hover .media img {
+    transform: none;
+  }
+}

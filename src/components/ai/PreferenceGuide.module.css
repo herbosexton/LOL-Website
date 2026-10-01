@@ -1,0 +1,60 @@
+.wrap {
+  display: grid;
+  gap: 1.25rem;
+  padding: 1.75rem;
+  background: var(--lol-white);
+  border: 1px solid rgba(43, 43, 43, 0.08);
+  box-shadow: var(--shadow-soft);
+}
+
+.fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.legend {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.option {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: 1px solid rgba(43, 43, 43, 0.16);
+  padding: 0.55rem 0.8rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: var(--text-sm);
+}
+
+.option:has(input:checked) {
+  border-color: var(--lol-green);
+  background: rgba(45, 71, 57, 0.08);
+}
+
+.note {
+  font-size: var(--text-sm);
+  color: rgba(43, 43, 43, 0.7);
+}
+
+.result {
+  display: grid;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: rgba(45, 71, 57, 0.06);
+  border-left: 2px solid var(--lol-gold);
+}
+
+.result h3 {
+  font-size: var(--text-lg);
+}

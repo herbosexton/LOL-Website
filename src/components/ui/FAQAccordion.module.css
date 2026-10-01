@@ -1,0 +1,48 @@
+.list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.item {
+  border-bottom: 1px solid rgba(43, 43, 43, 0.12);
+}
+
+.light .item {
+  border-bottom-color: rgba(249, 247, 242, 0.16);
+}
+
+.trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.1rem 0;
+  background: transparent;
+  border: 0;
+  text-align: left;
+  cursor: pointer;
+  font-size: var(--text-md);
+  font-weight: 600;
+  color: var(--lol-charcoal);
+}
+
+.light .trigger {
+  color: var(--lol-cream);
+}
+
+.icon {
+  flex: 0 0 auto;
+  color: var(--lol-gold);
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.panel {
+  padding: 0 0 1.1rem;
+  color: rgba(43, 43, 43, 0.78);
+}
+
+.light .panel {
+  color: rgba(249, 247, 242, 0.75);
+}

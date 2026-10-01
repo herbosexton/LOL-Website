@@ -1,0 +1,134 @@
+.footer {
+  background: #050505;
+  color: var(--lol-cream);
+  padding: clamp(4rem, 7vw, 5.5rem) 0 2rem;
+}
+
+.inner {
+  width: var(--container);
+  margin-inline: auto;
+  display: grid;
+  gap: 3rem;
+}
+
+.top {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr;
+  gap: 2.5rem;
+}
+
+.brand {
+  display: grid;
+  gap: 1.1rem;
+  align-content: start;
+}
+
+.brand img {
+  border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.address {
+  color: rgba(249, 247, 242, 0.58);
+  font-style: normal;
+  line-height: 1.7;
+  font-size: var(--text-sm);
+}
+
+.heading {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(249, 247, 242, 0.42);
+  margin-bottom: 1.1rem;
+  font-weight: 500;
+}
+
+.links {
+  display: grid;
+  gap: 0.75rem;
+  font-size: var(--text-sm);
+  color: rgba(249, 247, 242, 0.72);
+}
+
+.links a {
+  transition: color var(--duration-fast) var(--ease-apple);
+}
+
+.links a:hover {
+  color: var(--lol-gold);
+}
+
+.hours {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+  font-size: var(--text-sm);
+  color: rgba(249, 247, 242, 0.72);
+}
+
+.hours li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: baseline;
+}
+
+.hours li span:last-child {
+  color: rgba(249, 247, 242, 0.5);
+  text-align: right;
+  white-space: nowrap;
+}
+
+.social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.25rem;
+}
+
+.social a {
+  border: 1px solid rgba(249, 247, 242, 0.14);
+  padding: 0.45rem 0.8rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 980px;
+  color: rgba(249, 247, 242, 0.7);
+}
+
+.social a:hover {
+  border-color: rgba(198, 166, 100, 0.55);
+  color: var(--lol-gold);
+}
+
+.bottom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.75rem;
+  border-top: 1px solid rgba(249, 247, 242, 0.08);
+  color: rgba(249, 247, 242, 0.42);
+  font-size: 0.72rem;
+}
+
+.legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.1rem;
+}
+
+.legal a:hover {
+  color: rgba(249, 247, 242, 0.8);
+}
+
+@media (max-width: 900px) {
+  .top {
+    grid-template-columns: 1fr;
+  }
+}

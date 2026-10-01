@@ -1,0 +1,33 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  background: rgba(8, 8, 8, 0.72);
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+
+.dialog {
+  width: min(100%, 420px);
+  background: var(--lol-black);
+  color: var(--lol-cream);
+  border: 1px solid rgba(198, 166, 100, 0.35);
+  padding: 2rem 1.5rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.title {
+  font-size: var(--text-xl);
+  margin-bottom: 0.75rem;
+}
+
+.body {
+  color: rgba(249, 247, 242, 0.8);
+  margin-bottom: 1.5rem;
+}
+
+.actions {
+  display: grid;
+  gap: 0.75rem;
+}

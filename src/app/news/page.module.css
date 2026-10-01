@@ -1,0 +1,23 @@
+.page {
+  padding-bottom: 5rem;
+}
+
+.list {
+  width: var(--container);
+  margin: 2.5rem auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+
+.empty {
+  width: var(--container);
+  margin: 2.5rem auto 0;
+  color: rgba(43, 43, 43, 0.75);
+}
+
+@media (max-width: 900px) {
+  .list {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,36 +1,136 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Legacy on Lark Website
 
-## Getting Started
+Premium Next.js website for **Legacy on Lark**  
+260 Lark St, Albany, NY 12210
 
-First, run the development server:
+Stack: Next.js 16 (App Router) · React · TypeScript · Node.js · CSS Modules
+
+Deployment path: **Cursor → GitHub → SiteGround Node.js Project**
+
+Remote: https://github.com/herbosexton/LOL-Website.git
+
+## Requirements
+
+- Node.js 20.9+ (Node 24 LTS recommended)
+- npm
+
+## Local development
 
 ```bash
+npm install
+cp .env.example .env.local
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Scripts:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `npm run dev` — development server
+- `npm run build` — production build
+- `npm start` — start production server (respects `PORT`)
+- `npm run lint` — ESLint
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Environment variables
 
-## Learn More
+See [`.env.example`](.env.example). Never commit `.env` or `.env.local`.
 
-To learn more about Next.js, take a look at the following resources:
+| Variable | Purpose |
+| --- | --- |
+| `NEXT_PUBLIC_SITE_URL` | Canonical site URL (no trailing slash) |
+| `NEXT_PUBLIC_MENU_URL` | External cannabis menu / ordering URL |
+| `NEXT_PUBLIC_GA_ID` | GA4 measurement ID (optional) |
+| `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` | Search Console verification (optional) |
+| `SMTP_*` / `CONTACT_*` | Contact form email (server-only) |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Editing store information
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Update centralized config:
 
-## Deploy on Vercel
+[`src/config/site.ts`](src/config/site.ts)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Includes address, hours, phone, email, maps, social links, delivery areas, categories, terpenes, people, FAQs, and age-gate duration.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Replacing images
+
+Place files under:
+
+- `public/images/` — general / hero / OG
+- `public/images/products/` — category mosaic
+- `public/images/kulture/`
+- `public/images/about/`
+- `public/images/delivery/`
+- `public/images/blog/`
+- `public/images/logo.svg` — brand logo
+
+Keep filenames in sync with `src/config/site.ts` and page references, or update those paths when renaming.
+
+Product category cards support:
+
+- `mediaMode: "contain" | "cover"`
+- `objectPosition` focal point
+
+Use **contain** for isolated product shots; **cover** for lifestyle imagery.
+
+## Replacing videos
+
+Add:
+
+- `public/video/hero.mp4`
+- `public/video/hero.webm`
+
+Poster images:
+
+- `public/images/hero-poster.png`
+- `public/images/hero-mobile.png`
+
+The hero shows the poster immediately. Video autoplays only when motion is allowed. Missing video files simply keep the poster visible.
+
+## Creating a news article
+
+1. Add an MDX file under `content/news/`.
+2. Include frontmatter:
+
+```mdx
+---
+title: "Your Title"
+slug: "your-slug"
+date: "2026-03-01"
+category: "Education"
+excerpt: "Short summary"
+featuredImage: "/images/blog/your-image.png"
+featuredImageAlt: "Descriptive alt text"
+author: "Legacy on Lark"
+seoDescription: "SEO description"
+---
+
+Article body in Markdown/MDX…
+```
+
+3. Commit and push. `/news` and `/news/[slug]` update automatically (newest first).
+
+Article UI components consume the `Article` type from `src/types/content.ts` via `src/lib/content/news.ts`, so a headless CMS can replace the filesystem loader later.
+
+## Updating links
+
+- Navigation / footer: `src/config/site.ts`
+- Menu / Shop / Order buttons: `NEXT_PUBLIC_MENU_URL`
+- Maps: `siteConfig.maps` in `src/config/site.ts`
+- Social: `siteConfig.social` (leave empty until URLs are real)
+
+## Deployment
+
+See [`DEPLOYMENT.md`](DEPLOYMENT.md) for the exact SiteGround Node.js workflow.
+
+**Important:** Do not delete the existing WordPress site until this Node.js project is approved on SiteGround’s temporary domain.
+
+## Initial GitHub push
+
+```bash
+git init
+git add .
+git commit -m "Initial Legacy on Lark Next.js site"
+git branch -M main
+git remote add origin https://github.com/herbosexton/LOL-Website.git
+git push -u origin main
+```
+
+If git is already initialized, add the remote (if needed) and push `main`.
