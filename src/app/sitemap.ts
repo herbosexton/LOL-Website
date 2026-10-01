@@ -9,6 +9,7 @@ const staticRoutes = [
   "/kulture",
   "/news",
   "/contact",
+  "/careers",
   "/shop",
   "/privacy",
   "/terms",

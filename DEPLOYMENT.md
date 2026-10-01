@@ -46,6 +46,7 @@ SMTP_USER=
 SMTP_PASS=
 CONTACT_TO_EMAIL=
 CONTACT_FROM_EMAIL=
+CAREERS_TO_EMAIL=careers@loldispensary.com
 ```
 
 Never place production secrets in GitHub.

@@ -2,6 +2,7 @@ import type {
   CategoryItem,
   EducationTopic,
   FaqItem,
+  JobOpening,
   NavLink,
   Person,
   SocialLink,
@@ -81,6 +82,7 @@ export const siteConfig = {
     { label: "Kulture", href: "/kulture" },
     { label: "About", href: "/about" },
     { label: "News", href: "/news" },
+    { label: "Careers", href: "/careers" },
     { label: "Contact", href: "/contact" },
   ] as NavLink[],
 
@@ -330,6 +332,47 @@ export const siteConfig = {
       description: "We work for generational impact, not short-term trends.",
     },
   ],
+
+  careers: [
+    {
+      id: "budtender",
+      title: "Budtender",
+      type: "Full-time / Part-time",
+      summary:
+        "Guide guests with warmth, product knowledge, and the hospitality of a house that feels like home—premium without pretension.",
+      responsibilities: [
+        "Welcome guests 21+ and create a calm, confident retail experience",
+        "Recommend products based on preferences, effects, and education",
+        "Maintain a polished sales floor and support daily store operations",
+        "Uphold compliance, ID verification, and responsible-sale standards",
+      ],
+      requirements: [
+        "Must be 21 years of age or older",
+        "Strong communication and customer-service instincts",
+        "Interest in cannabis education and community culture",
+        "Ability to stand for shifts and lift up to 25 lbs as needed",
+      ],
+    },
+    {
+      id: "inventory-specialist",
+      title: "Inventory Specialist",
+      type: "Full-time",
+      summary:
+        "Own the back-of-house rhythm—receiving, tracking, and protecting inventory so the floor stays accurate and audit-ready.",
+      responsibilities: [
+        "Receive, verify, and organize incoming product shipments",
+        "Maintain inventory accuracy across rooms, counts, and transfers",
+        "Coordinate with budtenders and leadership on stock levels",
+        "Support compliance documentation and discrepancy resolution",
+      ],
+      requirements: [
+        "Must be 21 years of age or older",
+        "Detail-oriented with comfort handling organized systems",
+        "Reliable follow-through in a paced retail environment",
+        "Prior inventory, warehouse, or cannabis retail experience preferred",
+      ],
+    },
+  ] as JobOpening[],
 
   contactFaqs: [
     {

@@ -73,3 +73,12 @@ export interface Person {
   role: string;
   summary: string;
 }
+
+export interface JobOpening {
+  id: string;
+  title: string;
+  type: string;
+  summary: string;
+  responsibilities: string[];
+  requirements: string[];
+}

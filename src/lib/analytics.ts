@@ -4,6 +4,7 @@ export type AnalyticsEvent =
   | "directions_click"
   | "phone_click"
   | "contact_submit"
+  | "careers_submit"
   | "ai_guide_start"
   | "kulture_view";
 
