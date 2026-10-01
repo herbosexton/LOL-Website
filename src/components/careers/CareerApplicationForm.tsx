@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { type FormEvent, useState } from "react";
 import { Button } from "@/components/ui/Button";
 import {
   FormField,
@@ -34,7 +34,11 @@ export function CareerApplicationForm({
   const [message, setMessage] = useState("");
   const [resumeName, setResumeName] = useState("");
 
-  async function onSubmit(formData: FormData) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
     setStatus("submitting");
     setErrors({});
     setMessage("");
@@ -55,6 +59,9 @@ export function CareerApplicationForm({
     if (!payload.name.trim()) nextErrors.name = "Name is required.";
     if (!payload.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email)) {
       nextErrors.email = "Enter a valid email address.";
+    }
+    if (!payload.phone.trim() || payload.phone.trim().length < 7) {
+      nextErrors.phone = "Phone number is required.";
     }
     if (!payload.role.trim()) nextErrors.role = "Select a role.";
     if (!payload.experience.trim() || payload.experience.trim().length < 10) {
@@ -82,7 +89,7 @@ export function CareerApplicationForm({
         method: "POST",
         body: formData,
       });
-      const data = (await response.json()) as { message?: string };
+      const data = (await response.json().catch(() => ({}))) as { message?: string };
 
       if (!response.ok) {
         setStatus("error");
@@ -94,7 +101,7 @@ export function CareerApplicationForm({
       setStatus("success");
       setMessage(data.message || "Thank you. Your application has been sent.");
       setResumeName("");
-      (document.getElementById("careers-form") as HTMLFormElement | null)?.reset();
+      form.reset();
     } catch {
       setStatus("error");
       setMessage("Unable to send your application right now. Please try again later.");
@@ -105,7 +112,7 @@ export function CareerApplicationForm({
     <form
       id="careers-form"
       className={styles.form}
-      action={onSubmit}
+      onSubmit={handleSubmit}
       noValidate
       encType="multipart/form-data"
     >
@@ -125,7 +132,7 @@ export function CareerApplicationForm({
         name="phone"
         type="tel"
         label="Phone"
-        optional
+        required
         autoComplete="tel"
         error={errors.phone}
       />
