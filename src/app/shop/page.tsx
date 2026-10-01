@@ -39,7 +39,7 @@ export default function ShopPage() {
           />
           <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
             <Button href={href} external={external} variant="primary">
-              {getMenuLabel("View Menu")}
+              {getMenuLabel("Shop Now")}
             </Button>
             <Button href="/contact" variant="outline">
               Contact

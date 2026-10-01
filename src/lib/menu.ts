@@ -4,7 +4,7 @@ export function getMenuHref(fallback = "/contact") {
   return siteConfig.hasMenuUrl ? siteConfig.menuUrl : fallback;
 }
 
-export function getMenuLabel(defaultLabel = "View Menu") {
+export function getMenuLabel(defaultLabel = "Shop Now") {
   return siteConfig.hasMenuUrl ? defaultLabel : "Menu Coming Soon";
 }
 

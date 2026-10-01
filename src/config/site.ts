@@ -10,7 +10,9 @@ import type {
   TerpeneItem,
 } from "@/types/content";
 
-const menuUrl = process.env.NEXT_PUBLIC_MENU_URL?.trim() || "";
+const menuUrl =
+  process.env.NEXT_PUBLIC_MENU_URL?.trim() ||
+  "https://shop.loldispensary.com/menu/";
 
 export const siteConfig = {
   name: "Legacy on Lark",
@@ -103,7 +105,7 @@ export const siteConfig = {
   hero: {
     title: "Legacy on Lark",
     subtitle: "Cannabis. Culture. Community.",
-    primaryCta: { label: "Shop the Menu", href: "/shop" },
+    primaryCta: { label: "Shop Now", href: "/shop" },
     secondaryCta: { label: "Discover Legacy", href: "/about" },
     poster: "/images/hero-poster.jpg",
     mobilePoster: "/images/hero-mobile.jpg",
