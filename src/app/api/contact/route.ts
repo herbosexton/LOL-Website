@@ -45,7 +45,7 @@ export async function POST(request: Request) {
       );
     }
 
-    // Honeypot - silently accept bots without sending mail.
+    // Honeypot, silently accept bots without sending mail.
     if (parsed.data.company) {
       return NextResponse.json({ message: "Thank you. Your message has been sent." });
     }

@@ -9,7 +9,7 @@ import styles from "@/styles/pages.module.css";
 export const metadata = createMetadata({
   title: "About",
   description:
-    "Legacy on Lark is built on family, trust, and purpose - a premium Albany cannabis dispensary rooted in community and intentional growth.",
+    "Legacy on Lark is built on family, trust, and purpose, a premium Albany cannabis dispensary rooted in community and intentional growth.",
   path: "/about",
 });
 
@@ -30,14 +30,14 @@ export default function AboutPage() {
             <SectionHeading title="Our Story" />
             <p>
               Legacy on Lark is built on family, trust, and purpose. Niaja and
-              Chianti - a married couple - are central leaders of the vision. Herbert,
+              Chianti, a married couple, are central leaders of the vision. Herbert,
               their best friend, helped build that vision with them. Matthew
               Robinson later became an investor and landlord, and an important
               source of guidance.
             </p>
             <p>
               The brand carries themes of friendship, discipline, growth,
-              community, education, intentionality, and generational legacy - without
+              community, education, intentionality, and generational legacy, without
               inventing biographies beyond what we know to be true.
             </p>
           </div>
@@ -101,7 +101,7 @@ export default function AboutPage() {
           <div className={styles.prose}>
             <SectionHeading title="Community" />
             <p>
-              We are rooted in Albany - on Lark Street, among neighbors, culture
+              We are rooted in Albany, on Lark Street, among neighbors, culture
               makers, and curious guests. Hospitality here means respect, warmth,
               and a seat at the table.
             </p>

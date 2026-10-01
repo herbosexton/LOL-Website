@@ -1,4 +1,4 @@
-# SiteGround Node.js Deployment - Legacy on Lark
+# SiteGround Node.js Deployment, Legacy on Lark
 
 This app is a **standard Next.js Node.js server** application.
 
@@ -75,7 +75,7 @@ Do not hardcode ports. Next.js respects `PORT` when provided by SiteGround.
 
 ## Contact form on temporary domains
 
-Temporary SiteGround domains may not have domain-based email. Configure SMTP that works independently (transactional provider or a mailbox that allows SMTP auth). If SMTP env vars are missing, the API returns a safe error and logs a server-side configuration message - secrets are never exposed to the browser.
+Temporary SiteGround domains may not have domain-based email. Configure SMTP that works independently (transactional provider or a mailbox that allows SMTP auth). If SMTP env vars are missing, the API returns a safe error and logs a server-side configuration message, secrets are never exposed to the browser.
 
 ## Rollback / WordPress coexistence
 

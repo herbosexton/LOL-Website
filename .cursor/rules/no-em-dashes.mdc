@@ -1,19 +1,20 @@
 ---
-description: Never use em dashes or en dashes in site copy or code comments that appear as content
+description: Never use em dashes, en dashes, or spaced hyphens as punctuation in site copy
 alwaysApply: true
 ---
 
 # No elongated dashes
 
-Never use em dashes (`—`) or en dashes (`–`) anywhere in this project’s user-facing copy, metadata, MDX, emails, or comments that mirror site voice.
+Never use em dashes (`—`), en dashes (`–`), or spaced hyphens (` - `) as punctuation in this project’s user-facing copy, metadata, MDX, emails, or comments that mirror site voice.
 
 Use instead:
-- a comma, period, or colon
-- a spaced hyphen: ` - `
-- a plain hyphen in ranges: `8am-10pm`
+- a comma
+- a period or colon
+- a plain hyphen only in ranges/codes: `8am-10pm`
 
 Examples:
 - Bad: `home—premium without pretension`
-- Good: `home - premium without pretension`
+- Bad: `home - premium without pretension`
+- Good: `home, premium without pretension`
 - Bad: `8am–10pm`
 - Good: `8am-10pm`

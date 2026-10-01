@@ -9,7 +9,7 @@ import styles from "@/styles/pages.module.css";
 export const metadata = createMetadata({
   title: "Shop",
   description:
-    "Shop the Legacy on Lark menu - premium cannabis products for adults 21+ in Albany, NY.",
+    "Shop the Legacy on Lark menu, premium cannabis products for adults 21+ in Albany, NY.",
   path: "/shop",
 });
 

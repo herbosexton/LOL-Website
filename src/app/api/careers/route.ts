@@ -131,7 +131,7 @@ export async function POST(request: Request) {
       from: `"Legacy on Lark Careers" <${process.env.CONTACT_FROM_EMAIL}>`,
       to: careersInbox(),
       replyTo: email,
-      subject: `[Careers] ${roleTitle} - ${name}`,
+      subject: `[Careers] ${roleTitle}, ${name}`,
       text: [
         `Role: ${roleTitle}`,
         `Name: ${name}`,

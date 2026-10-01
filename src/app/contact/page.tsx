@@ -21,7 +21,7 @@ export default function ContactPage() {
       <ImageHero
         eyebrow="Contact"
         title="We Would Love to Hear From You"
-        copy="Questions about the store, menu, or visit? Send a note - adults 21+ only."
+        copy="Questions about the store, menu, or visit? Send a note, adults 21+ only."
         image="/images/about/community.jpg"
         alt="Guests outside Legacy on Lark in Albany"
         compact

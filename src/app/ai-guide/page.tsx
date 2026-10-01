@@ -21,7 +21,7 @@ export default function AiGuidePage() {
       <ImageHero
         eyebrow="AI Guide"
         title="Find What Fits You"
-        copy="Technology-forward education inside the Legacy visual world - clear, warm, and never cyberpunk for its own sake."
+        copy="Technology-forward education inside the Legacy visual world, clear, warm, and never cyberpunk for its own sake."
         image="/images/ai-guide/hero.jpg"
         alt="Soft gold atmosphere introducing the Legacy AI Guide"
       />
@@ -36,7 +36,7 @@ export default function AiGuidePage() {
             <p>
               Cannabis products differ in onset, duration, and format. Understanding
               those basics helps you browse with more clarity. Individual experiences
-              vary - there is no single right answer for everyone.
+              vary, there is no single right answer for everyone.
             </p>
           </div>
         </div>
@@ -56,7 +56,7 @@ export default function AiGuidePage() {
           </article>
           <article className={styles.step}>
             <h3>Share preferences</h3>
-            <p>Select mood, format, and aroma leanings - no sensitive health data.</p>
+            <p>Select mood, format, and aroma leanings, no sensitive health data.</p>
           </article>
           <article className={styles.step}>
             <h3>Explore suggestions</h3>
@@ -103,7 +103,7 @@ export default function AiGuidePage() {
           <div className={styles.prose}>
             <SectionHeading
               title="Preferences / Experiences"
-              subtitle="Tell us what you are curious about. We will suggest educational next steps - not medical claims."
+              subtitle="Tell us what you are curious about. We will suggest educational next steps, not medical claims."
             />
             <p>
               This interface is designed so a true AI recommendation backend can be

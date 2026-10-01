@@ -27,7 +27,7 @@ export default async function CareersPage({
       <ImageHero
         eyebrow="Careers"
         title="Work With Legacy"
-        copy="Build culture, hospitality, and craft on Lark Street - roles for adults 21+ who care about the guest experience."
+        copy="Build culture, hospitality, and craft on Lark Street, roles for adults 21+ who care about the guest experience."
         image="/images/about/store-interior.jpg"
         alt="Interior of Legacy on Lark in Albany"
         compact
@@ -37,7 +37,7 @@ export default async function CareersPage({
         <div className={styles.inner}>
           <SectionHeading
             title="Open Roles"
-            subtitle="Two paths into the house - front-of-house hospitality and inventory stewardship."
+            subtitle="Two paths into the house, front-of-house hospitality and inventory stewardship."
           />
           <div className={careerStyles.jobs}>
             {siteConfig.careers.map((job) => (
