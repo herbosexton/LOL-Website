@@ -7,9 +7,9 @@ import { createMetadata } from "@/lib/seo";
 import styles from "@/styles/pages.module.css";
 
 export const metadata = createMetadata({
-  title: "Shop",
+  title: "Shop Cannabis Online",
   description:
-    "Shop the Legacy on Lark menu, premium cannabis products for adults 21+ in Albany, NY.",
+    "Shop the Legacy on Lark live menu for flower, edibles, vapes, drinks, and more. Pickup in Albany, NY, adults 21+.",
   path: "/shop",
 });
 

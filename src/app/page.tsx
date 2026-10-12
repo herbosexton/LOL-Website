@@ -18,7 +18,7 @@ import { createMetadata } from "@/lib/seo";
 import styles from "./home.module.css";
 
 export const metadata = createMetadata({
-  title: siteConfig.name,
+  title: "Albany Cannabis Dispensary on Lark Street",
   description: siteConfig.description,
   path: "/",
 });
@@ -47,12 +47,12 @@ export default function HomePage() {
             <div className={styles.introCopy}>
               <SectionHeading
                 eyebrow="Welcome"
-                title="More than a dispensary"
-                subtitle="Cannabis, culture, community, education, and human connection, woven into one inviting house on Lark."
+                title="Your spot on Lark"
+                subtitle="Adult-use cannabis in Center Square. Good product, clear answers, and a crew that treats you like a neighbor."
               />
               <p>
-                Beautiful. Warm. Confident. The feeling of walking into the cool,
-                successful aunt&apos;s home, premium without pretension.
+                Come in for flower, edibles, vapes, drinks, and more. Stay for
+                straight talk and a shop that feels like home, not a hard sell.
               </p>
               <Button href="/about" variant="outline">
                 Our story
@@ -71,12 +71,12 @@ export default function HomePage() {
           <div className={styles.aiInner}>
             <SectionHeading
               align="center"
-              eyebrow="AI Guide"
-              title="Find what fits you"
-              subtitle="Learn the fundamentals, from terpenes to effects, then explore a calm, guided matching experience."
+              eyebrow="Product Guide"
+              title="Not sure what to get?"
+              subtitle="Quick primers on product types and terpenes, plus a short quiz if you want a starting point."
             />
             <Button href="/ai-guide" variant="primary">
-              Explore AI Guide
+              Open the guide
             </Button>
           </div>
         </Reveal>
@@ -88,8 +88,8 @@ export default function HomePage() {
             <SectionHeading
               align="center"
               eyebrow="Terpenes"
-              title="Aroma with intention"
-              subtitle="Swipe through the notes that help you describe what you love."
+              title="Smell first"
+              subtitle="These aroma notes show up a lot on our shelves. Swipe through a few."
             />
             <h2 id="terpenes-heading" className="sr-only">
               Terpene explorer
@@ -122,7 +122,7 @@ export default function HomePage() {
             </p>
             <h2 className={styles.kultureTitle}>Kulture</h2>
             <p>
-              History, creativity, ownership, and joy, told with quiet confidence.
+              Local culture, history, and creativity from Albany&apos;s point of view.
             </p>
             <Button href="/kulture" variant="gold">
               Explore Kulture
@@ -137,8 +137,8 @@ export default function HomePage() {
             <SectionHeading
               align="center"
               eyebrow="Learn"
-              title="Clarity before choice"
-              subtitle="Simple guidance for curious adults exploring cannabis in Albany."
+              title="Ask better questions"
+              subtitle="Short reads for adults shopping cannabis in Albany."
             />
           </div>
         </Reveal>
@@ -159,8 +159,8 @@ export default function HomePage() {
           <div className={styles.newsHeader}>
             <SectionHeading
               eyebrow="Journal"
-              title="Fresh from Legacy"
-              subtitle="Education-first stories worth a slow read."
+              title="From the shop"
+              subtitle="Practical notes from Legacy on Lark."
             />
             <Button href="/news" variant="outline">
               View all
@@ -185,8 +185,8 @@ export default function HomePage() {
           <Reveal variant="left">
             <SectionHeading
               eyebrow="Visit"
-              title="Come see us on Lark"
-              subtitle="A premium cannabis dispensary in the heart of Albany, ready when you are."
+              title="260 Lark Street"
+              subtitle="Center Square, Albany. Pickup in-store, delivery across the Capital Region."
             />
           </Reveal>
           <Reveal variant="right" delay={2}>
@@ -202,14 +202,14 @@ export default function HomePage() {
 
       <Reveal variant="scale">
         <CTASection
-          title="Come as you are. Leave elevated."
-          copy="Browse the menu or stop by 260 Lark Street."
+          title="Ready when you are"
+          copy="Browse the live menu, or come see us at 260 Lark Street."
           primary={{
-            label: "Shop",
+            label: "Shop Now",
             href: menuHref,
             external: isExternalMenu(),
           }}
-          secondary={{ label: "Visit us", href: "/contact" }}
+          secondary={{ label: "Get directions", href: "/contact" }}
         />
       </Reveal>
     </>

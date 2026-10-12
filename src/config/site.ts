@@ -19,7 +19,7 @@ export const siteConfig = {
   legalName: "Legacy on Lark",
   tagline: "Cannabis. Culture. Community.",
   description:
-    "Legacy on Lark is a premium Albany cannabis dispensary rooted in culture, community, education, and intentional hospitality.",
+    "Legacy on Lark is an adult-use cannabis dispensary at 260 Lark St in Albany, NY. Shop flower, edibles, vapes, drinks, and more, with in-store pickup and Capital Region delivery for adults 21+.",
   url: process.env.NEXT_PUBLIC_SITE_URL?.trim() || "http://localhost:3000",
 
   address: {
@@ -29,6 +29,11 @@ export const siteConfig = {
     postalCode: "12210",
     country: "US",
     formatted: "260 Lark St, Albany, NY 12210",
+  },
+
+  geo: {
+    latitude: 42.6539184,
+    longitude: -73.765856,
   },
 
   // Leave empty until confirmed, UI hides empty fields (do not invent).
@@ -67,7 +72,7 @@ export const siteConfig = {
   nav: {
     left: [
       { label: "Home", href: "/" },
-      { label: "AI Guide", href: "/ai-guide" },
+      { label: "Guide", href: "/ai-guide" },
       { label: "Kulture", href: "/kulture" },
     ] as NavLink[],
     right: [
@@ -80,10 +85,11 @@ export const siteConfig = {
 
   footerLinks: [
     { label: "Shop", href: "/shop" },
-    { label: "AI Guide", href: "/ai-guide" },
+    { label: "Guide", href: "/ai-guide" },
     { label: "Kulture", href: "/kulture" },
     { label: "About", href: "/about" },
     { label: "News", href: "/news" },
+    { label: "Delivery", href: "/delivery" },
     { label: "Careers", href: "/careers" },
     { label: "Contact", href: "/contact" },
   ] as NavLink[],
@@ -106,7 +112,7 @@ export const siteConfig = {
     title: "Legacy on Lark",
     subtitle: "Cannabis. Culture. Community.",
     primaryCta: { label: "Shop Now", href: menuUrl },
-    secondaryCta: { label: "Discover Legacy", href: "/about" },
+    secondaryCta: { label: "Our Story", href: "/about" },
     poster: "/images/hero-poster.jpg",
     mobilePoster: "/images/hero-mobile.jpg",
     videoMp4: "/video/hero.mp4",
@@ -197,40 +203,35 @@ export const siteConfig = {
     {
       id: "humulene",
       name: "Humulene",
-      description:
-        "Earthy and woodsy with herbal depth, often associated with grounding, aromatic profiles.",
+      description: "Earthy, woodsy, and herbal. Common in hoppy or spicy profiles.",
       href: "/ai-guide#terpenes",
       icon: "humulene",
     },
     {
       id: "eucalyptol",
       name: "Eucalyptol",
-      description:
-        "Cool, minty, and clarifying, known for a crisp aromatic lift.",
+      description: "Cool and minty, with a clean, crisp edge.",
       href: "/ai-guide#terpenes",
       icon: "eucalyptol",
     },
     {
       id: "beta-caryophyllene",
       name: "Beta-Caryophyllene",
-      description:
-        "Peppery and warm, with a spicy character found in many classic cultivars.",
+      description: "Peppery and warm. Shows up in a lot of classic strains.",
       href: "/ai-guide#terpenes",
       icon: "beta-caryophyllene",
     },
     {
       id: "terpinolene",
       name: "Terpinolene",
-      description:
-        "Fresh, floral, and herbal, often linked to bright, uplifting aromatic expressions.",
+      description: "Fresh, floral, and a little herbal. Often brighter on the nose.",
       href: "/ai-guide#terpenes",
       icon: "terpinolene",
     },
     {
       id: "caryophyllene",
       name: "Caryophyllene",
-      description:
-        "Spiced and bold, with clove-like warmth that adds complexity to the bouquet.",
+      description: "Spiced and bold, closer to clove than citrus.",
       href: "/ai-guide#terpenes",
       icon: "caryophyllene",
     },
@@ -240,13 +241,13 @@ export const siteConfig = {
     {
       id: "cannabis-101",
       title: "Cannabis 101",
-      description: "Foundations for confident, informed exploration.",
+      description: "The basics before you buy.",
       href: "/ai-guide#fundamentals",
     },
     {
       id: "terpenes",
       title: "Terpenes",
-      description: "How aroma compounds shape the experience.",
+      description: "What you smell, and why it matters.",
       href: "/ai-guide#terpenes",
     },
     {
@@ -257,20 +258,20 @@ export const siteConfig = {
     },
     {
       id: "responsible",
-      title: "Responsible Consumption",
-      description: "Intentional habits for adults 21 and older.",
+      title: "Responsible Use",
+      description: "Simple habits for adults 21 and older.",
       href: "/ai-guide#preferences",
     },
     {
       id: "ai-guidance",
-      title: "AI Guidance",
-      description: "A smarter way to explore what fits you.",
+      title: "Find Your Fit",
+      description: "Answer a few questions, get clearer options.",
       href: "/ai-guide#experience",
     },
     {
       id: "community",
-      title: "Community Knowledge",
-      description: "Learning that grows with Albany’s culture.",
+      title: "Kulture",
+      description: "Albany stories, culture, and community.",
       href: "/kulture",
     },
   ] as EducationTopic[],
@@ -278,60 +279,60 @@ export const siteConfig = {
   people: [
     {
       name: "Niaja",
-      role: "Co-founder & Leader",
+      role: "Co-founder",
       summary:
-        "Together with Chianti, Niaja helps lead Legacy on Lark with family, trust, and purpose at the center.",
+        "Co-leads Legacy on Lark with Chianti. Family and trust sit at the center of how the store is run.",
     },
     {
       name: "Chianti",
-      role: "Co-founder & Leader",
+      role: "Co-founder",
       summary:
-        "A married partner and central leader shaping Legacy’s vision of culture, community, and intentional growth.",
+        "Co-leads the business with Niaja. Focused on culture, community, and building something that lasts.",
     },
     {
       name: "Herbert",
-      role: "Founding Friend & Vision Partner",
+      role: "Founding Friend",
       summary:
-        "Best friend to Niaja and Chianti; helped build the vision with them from the beginning.",
+        "Close friend to Niaja and Chianti. Helped shape the vision from the start.",
     },
     {
       name: "Matthew Robinson",
       role: "Investor, Landlord & Guide",
       summary:
-        "Later became an investor and landlord, and an important source of guidance for the team.",
+        "Came on later as investor and landlord, and continues to advise the team.",
     },
   ] as Person[],
 
   mission:
-    "Redefine legacy through a premium cannabis experience that elevates culture, connects community and inspires growth.",
+    "Run a cannabis shop Albany can be proud of: good product, straight answers, and hospitality that feels like home.",
 
   vision:
-    "To be Albany’s most trusted, culturally rooted cannabis destination, where education, technology, and human connection create belonging.",
+    "Be the Capital Region spot people trust for quality cannabis, clear education, and a real sense of community.",
 
   values: [
     {
       title: "Family",
-      description: "We build with care, loyalty, and long-term thinking.",
+      description: "We build for the long run, not the quick win.",
     },
     {
       title: "Friendship",
-      description: "Trust between people is part of how Legacy was made.",
+      description: "This store started with trust between people who show up for each other.",
     },
     {
       title: "Discipline",
-      description: "Premium experiences require consistency and standards.",
+      description: "Standards matter: clean floor, accurate inventory, consistent service.",
     },
     {
       title: "Community",
-      description: "We show up for Albany with warmth and respect.",
+      description: "We are on Lark Street for Albany neighbors, not tourists only.",
     },
     {
       title: "Education",
-      description: "Knowledge makes cannabis more approachable and intentional.",
+      description: "We explain product clearly so guests can choose with confidence.",
     },
     {
       title: "Legacy",
-      description: "We work for generational impact, not short-term trends.",
+      description: "We are building something that can outlast a trend cycle.",
     },
   ],
 
@@ -417,7 +418,7 @@ export const siteConfig = {
       id: "different",
       question: "What makes LOL different from other dispensaries?",
       answer:
-        "Legacy on Lark is rooted in family, trust, culture, and intentional hospitality. We focus on premium products, education, community, and a warm Albany experience that feels personal, not corporate.",
+        "Legacy on Lark is rooted in family, trust, and culture. We focus on good product, clear education, and a warm Albany shop experience that feels personal, not corporate.",
     },
     {
       id: "id",
@@ -477,7 +478,7 @@ export const siteConfig = {
       id: "medical",
       question: "Is this medical advice?",
       answer:
-        "No. The AI Guide is an educational matching experience. It is not medical advice, and it does not diagnose, treat, or guarantee outcomes.",
+        "No. The product guide is educational only. It is not medical advice, and it does not diagnose, treat, or guarantee outcomes.",
     },
     {
       id: "effects",

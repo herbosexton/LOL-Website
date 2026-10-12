@@ -14,8 +14,8 @@ export async function CategoryMosaic() {
         <SectionHeading
           align="center"
           eyebrow="The Menu"
-          title="Find what fits"
-          subtitle="Live products from the Legacy on Lark shop, grouped the way we stock them."
+          title={"What's on the shelf"}
+          subtitle="Live inventory from the shop, grouped by category. Tap through to order."
         />
         <h2 id="categories-heading" className="sr-only">
           Product categories

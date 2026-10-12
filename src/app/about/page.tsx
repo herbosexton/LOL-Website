@@ -3,23 +3,26 @@ import { CTASection } from "@/components/ui/CTASection";
 import { ImageHero } from "@/components/ui/ImageHero";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { siteConfig } from "@/config/site";
+import { getMenuHref, isExternalMenu } from "@/lib/menu";
 import { createMetadata } from "@/lib/seo";
 import styles from "@/styles/pages.module.css";
 
 export const metadata = createMetadata({
   title: "About",
   description:
-    "Legacy on Lark is built on family, trust, and purpose, a premium Albany cannabis dispensary rooted in community and intentional growth.",
+    "Meet the team behind Legacy on Lark, an adult-use cannabis dispensary at 260 Lark St in Albany, NY, built by family, friends, and local partners.",
   path: "/about",
 });
 
 export default function AboutPage() {
+  const menuHref = getMenuHref();
+
   return (
     <>
       <ImageHero
         eyebrow="About"
-        title="Built on Family, Trust & Purpose"
-        copy="Legacy on Lark is a premium cannabis experience shaped by friendship, discipline, and generational intention in Albany, NY."
+        title="Built by people who care"
+        copy="Legacy on Lark started with family, friendship, and a plan to run a real shop on Lark Street, not a corporate copy."
         image="/images/about/store-interior.jpg"
         alt="Warm green-toned atmosphere representing the Legacy on Lark story"
       />
@@ -29,16 +32,14 @@ export default function AboutPage() {
           <div className={styles.prose}>
             <SectionHeading title="Our Story" />
             <p>
-              Legacy on Lark is built on family, trust, and purpose. Niaja and
-              Chianti, a married couple, are central leaders of the vision. Herbert,
-              their best friend, helped build that vision with them. Matthew
-              Robinson later became an investor and landlord, and an important
-              source of guidance.
+              Legacy on Lark is led by Niaja and Chianti, a married couple who
+              built this business together. Their close friend Herbert helped
+              shape the vision from day one. Matthew Robinson later joined as an
+              investor and landlord, and stays involved as a guide.
             </p>
             <p>
-              The brand carries themes of friendship, discipline, growth,
-              community, education, intentionality, and generational legacy, without
-              inventing biographies beyond what we know to be true.
+              We keep the story honest. No invented biographies, no filler
+              slogans. Just the people who actually built the house on Lark.
             </p>
           </div>
           <div className={styles.media}>
@@ -63,7 +64,7 @@ export default function AboutPage() {
         <div className={styles.inner}>
           <SectionHeading
             title="Values"
-            subtitle="The principles that keep Legacy grounded and growing."
+            subtitle="What we hold ourselves to in the shop every day."
           />
         </div>
         <div className={styles.grid3}>
@@ -80,7 +81,7 @@ export default function AboutPage() {
         <div className={styles.inner}>
           <SectionHeading
             title="People Behind Legacy"
-            subtitle="Leaders and partners who shaped the house on Lark."
+            subtitle="The crew that made 260 Lark Street happen."
           />
         </div>
         <div className={styles.grid3}>
@@ -101,27 +102,31 @@ export default function AboutPage() {
           <div className={styles.prose}>
             <SectionHeading title="Community" />
             <p>
-              We are rooted in Albany, on Lark Street, among neighbors, culture
-              makers, and curious guests. Hospitality here means respect, warmth,
-              and a seat at the table.
+              We are rooted in Albany, on Lark Street, among neighbors, artists,
+              and curious guests. Hospitality here means respect, warmth, and
+              room to ask questions.
             </p>
           </div>
           <div className={styles.prose}>
-            <SectionHeading title="Technology + Education" />
+            <SectionHeading title="Education in the Shop" />
             <p>
-              From clear product education to an AI-guided matching experience,
-              technology at Legacy supports human connection instead of replacing
-              it.
+              Budtenders explain product in plain language. Our online guide is
+              there if you want homework before you visit. People still come
+              first.
             </p>
           </div>
         </div>
       </section>
 
       <CTASection
-        title="Come experience Legacy"
-        copy="Visit 260 Lark St or explore the menu when you are ready."
+        title="Come see the shop"
+        copy="Visit 260 Lark St or browse the live menu when you are ready."
         primary={{ label: "Visit Us", href: "/contact" }}
-        secondary={{ label: "Shop", href: "/shop" }}
+        secondary={{
+          label: "Shop Now",
+          href: menuHref,
+          external: isExternalMenu(),
+        }}
       />
     </>
   );

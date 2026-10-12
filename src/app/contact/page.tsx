@@ -5,13 +5,13 @@ import { MapEmbed } from "@/components/ui/MapEmbed";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { StoreInfo } from "@/components/ui/StoreInfo";
 import { siteConfig } from "@/config/site";
-import { createMetadata } from "@/lib/seo";
+import { createMetadata, faqJsonLd } from "@/lib/seo";
 import styles from "@/styles/pages.module.css";
 
 export const metadata = createMetadata({
-  title: "Contact",
+  title: "Contact & Directions",
   description:
-    "Contact Legacy on Lark at 260 Lark St, Albany, NY 12210. Send a message or plan your visit.",
+    "Visit Legacy on Lark at 260 Lark St, Albany, NY 12210. Get hours, directions, and send a message. Adults 21+ with valid ID.",
   path: "/contact",
 });
 
@@ -20,8 +20,8 @@ export default function ContactPage() {
     <>
       <ImageHero
         eyebrow="Contact"
-        title="We Would Love to Hear From You"
-        copy="Questions about the store, menu, or visit? Send a note, adults 21+ only."
+        title="Come through on Lark"
+        copy="Questions about the store, menu, or visit? Send a note. Adults 21+ only."
         image="/images/about/community.jpg"
         alt="Guests outside Legacy on Lark in Albany"
         compact
@@ -54,6 +54,19 @@ export default function ContactPage() {
           <FAQAccordion items={[...siteConfig.contactFaqs]} />
         </div>
       </section>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            faqJsonLd(
+              siteConfig.contactFaqs.map((item) => ({
+                question: item.question,
+                answer: item.answer,
+              })),
+            ),
+          ),
+        }}
+      />
     </>
   );
 }

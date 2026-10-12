@@ -9,9 +9,9 @@ import { createMetadata } from "@/lib/seo";
 import styles from "@/styles/pages.module.css";
 
 export const metadata = createMetadata({
-  title: "Delivery",
+  title: "Cannabis Delivery Albany & Capital Region",
   description:
-    "Cannabis delivery from Legacy on Lark to Albany, Clifton Park, Latham, Schenectady, and Troy, NY.",
+    "Order cannabis delivery from Legacy on Lark to Albany, Clifton Park, Latham, Schenectady, and Troy, NY. Adults 21+ with valid ID.",
   path: "/delivery",
 });
 
@@ -22,8 +22,8 @@ export default function DeliveryPage() {
     <>
       <ImageHero
         eyebrow="Delivery"
-        title="Elevated Delivery Across the Capital Region"
-        copy="Browse the menu, place your order, and get it delivered in supported areas, adults 21+ with valid ID."
+        title="Delivery across the Capital Region"
+        copy="Order online, get it brought to you in supported areas. Adults 21+ with valid ID at the door."
         image="/images/delivery/hero.jpg"
         alt="Refined green backdrop introducing Legacy on Lark delivery"
       />
@@ -32,8 +32,8 @@ export default function DeliveryPage() {
         <div className={styles.grid2}>
           <div className={styles.prose}>
             <SectionHeading
-              title="Delivery Overview"
-              subtitle="Legacy on Lark brings a premium dispensary experience to your door in select New York communities."
+              title="How delivery works"
+              subtitle="Browse the menu, check out for delivery if your area is supported, and keep your ID ready."
             />
             <p>
               Availability and checkout details are managed through our ordering

@@ -44,13 +44,52 @@ export function createMetadata({
   };
 }
 
+function openingHoursJsonLd() {
+  return [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday"],
+      opens: "08:00",
+      closes: "22:00",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: "Friday",
+      opens: "08:00",
+      closes: "23:00",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: "Saturday",
+      opens: "09:00",
+      closes: "23:00",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: "Sunday",
+      opens: "11:00",
+      closes: "06:00",
+    },
+  ];
+}
+
 export function localBusinessJsonLd() {
+  const sameAs = siteConfig.social
+    .map((item) => item.href)
+    .filter((href) => /^https?:\/\//i.test(href));
+
   return {
     "@context": "https://schema.org",
-    "@type": "Store",
+    "@type": ["Store", "LocalBusiness"],
+    "@id": `${siteConfig.url.replace(/\/$/, "")}/#business`,
     name: siteConfig.name,
+    alternateName: ["LOL Dispensary", "Legacy On Lark"],
     description: siteConfig.description,
     url: siteConfig.url,
+    image: absoluteUrl("/images/og-default.jpg"),
+    priceRange: "$$",
+    currenciesAccepted: "USD",
+    paymentAccepted: "Cash",
     address: {
       "@type": "PostalAddress",
       streetAddress: siteConfig.address.street,
@@ -59,7 +98,34 @@ export function localBusinessJsonLd() {
       postalCode: siteConfig.address.postalCode,
       addressCountry: siteConfig.address.country,
     },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: siteConfig.geo.latitude,
+      longitude: siteConfig.geo.longitude,
+    },
+    hasMap: siteConfig.maps.google,
+    openingHoursSpecification: openingHoursJsonLd(),
+    areaServed: siteConfig.deliveryAreas.map((area) => ({
+      "@type": "City",
+      name: area.replace(/, NY$/, ""),
+    })),
     ...(siteConfig.phone ? { telephone: siteConfig.phone } : {}),
     ...(siteConfig.email ? { email: siteConfig.email } : {}),
+    ...(sameAs.length ? { sameAs } : {}),
+  };
+}
+
+export function faqJsonLd(items: Array<{ question: string; answer: string }>) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
   };
 }

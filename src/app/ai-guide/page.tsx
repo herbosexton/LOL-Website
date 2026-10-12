@@ -9,9 +9,9 @@ import { createMetadata } from "@/lib/seo";
 import styles from "@/styles/pages.module.css";
 
 export const metadata = createMetadata({
-  title: "AI Guide",
+  title: "Product Guide",
   description:
-    "Learn cannabis fundamentals and explore Legacy on Lark’s AI-powered matching experience. Educational guidance for adults 21+ in Albany, NY.",
+    "Learn cannabis basics, terpenes, and product types at Legacy on Lark in Albany, NY. Optional short quiz for adults 21+ who want a starting point.",
   path: "/ai-guide",
 });
 
@@ -19,18 +19,18 @@ export default function AiGuidePage() {
   return (
     <>
       <ImageHero
-        eyebrow="AI Guide"
-        title="Find What Fits You"
-        copy="Technology-forward education inside the Legacy visual world, clear, warm, and never cyberpunk for its own sake."
+        eyebrow="Product Guide"
+        title="Find what fits"
+        copy="Plain-language cannabis education, plus a short quiz if you want help narrowing options."
         image="/images/ai-guide/hero.jpg"
-        alt="Soft gold atmosphere introducing the Legacy AI Guide"
+        alt="Soft gold atmosphere introducing the Legacy product guide"
       />
 
       <section className={styles.section} id="fundamentals">
         <div className={styles.inner}>
           <SectionHeading
             title="Cannabis Fundamentals"
-            subtitle="Build confidence with product types, potency awareness, and intentional exploration."
+            subtitle="Product types, potency basics, and how to shop with a clearer head."
           />
           <div className={styles.prose}>
             <p>
@@ -72,7 +72,7 @@ export default function AiGuidePage() {
             subtitle="Aromatic character that can help you describe what you enjoy."
           />
         </div>
-        <HorizontalScroller label="AI Guide terpenes">
+        <HorizontalScroller label="Product guide terpenes">
           {siteConfig.terpenes.map((item) => (
             <TerpeneCard key={item.id} item={item} />
           ))}
