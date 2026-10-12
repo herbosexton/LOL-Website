@@ -339,7 +339,7 @@ export const siteConfig = {
     {
       id: "budtender",
       title: "Budtender",
-      type: "Full-time / Part-time",
+      type: "Part-time",
       summary:
         "Guide guests with warmth, product knowledge, and the hospitality of a house that feels like home, premium without pretension.",
       responsibilities: [
@@ -358,7 +358,7 @@ export const siteConfig = {
     {
       id: "inventory-specialist",
       title: "Inventory Specialist",
-      type: "Full-time",
+      type: "Part-time",
       summary:
         "Own the back-of-house rhythm, receiving, tracking, and protecting inventory so the floor stays accurate and audit-ready.",
       responsibilities: [
