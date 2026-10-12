@@ -12,7 +12,7 @@ import type {
 
 const menuUrl =
   process.env.NEXT_PUBLIC_MENU_URL?.trim() ||
-  "https://shop.loldispensary.com/menu/";
+  "https://menu.legacy-dispensary.com/lol-dispensary/?delivery_type=pickup";
 
 export const siteConfig = {
   name: "Legacy on Lark",
@@ -105,7 +105,7 @@ export const siteConfig = {
   hero: {
     title: "Legacy on Lark",
     subtitle: "Cannabis. Culture. Community.",
-    primaryCta: { label: "Shop Now", href: "/shop" },
+    primaryCta: { label: "Shop Now", href: menuUrl },
     secondaryCta: { label: "Discover Legacy", href: "/about" },
     poster: "/images/hero-poster.jpg",
     mobilePoster: "/images/hero-mobile.jpg",
@@ -117,7 +117,7 @@ export const siteConfig = {
     {
       id: "flower",
       title: "Flower",
-      href: `${menuUrl.replace(/\/$/, "")}/categories/flower/`,
+      href: menuUrl,
       cta: "Shop",
       image: "/images/products/flower.jpg",
       alt: "Premium cannabis flower bag and buds",
@@ -128,7 +128,7 @@ export const siteConfig = {
     {
       id: "prerolls",
       title: "Pre-Rolls",
-      href: `${menuUrl.replace(/\/$/, "")}/categories/prerolls/`,
+      href: menuUrl,
       cta: "Shop",
       image: "/images/products/prerolls.jpg",
       alt: "Legacy on Lark pre-roll tube and joint",
@@ -139,7 +139,7 @@ export const siteConfig = {
     {
       id: "infusion",
       title: "Drinks",
-      href: `${menuUrl.replace(/\/$/, "")}/categories/drinks/`,
+      href: menuUrl,
       cta: "Shop",
       image: "/images/products/infusion.jpg",
       alt: "Cannabis infusion beverage can",
@@ -150,7 +150,7 @@ export const siteConfig = {
     {
       id: "edibles",
       title: "Edibles",
-      href: `${menuUrl.replace(/\/$/, "")}/categories/edibles/`,
+      href: menuUrl,
       cta: "Shop",
       image: "/images/products/edibles.jpg",
       alt: "Cannabis edibles pouch with gummies on a dark marble surface",
@@ -161,7 +161,7 @@ export const siteConfig = {
     {
       id: "vaporizers",
       title: "Vapes",
-      href: `${menuUrl.replace(/\/$/, "")}/categories/vapes/`,
+      href: menuUrl,
       cta: "Shop",
       image: "/images/products/vaporizers.jpg",
       alt: "Sleek vaporizer styled on a forest-green surface",
@@ -172,7 +172,7 @@ export const siteConfig = {
     {
       id: "accessories",
       title: "Chocolate",
-      href: `${menuUrl.replace(/\/$/, "")}/categories/chocolate/`,
+      href: menuUrl,
       cta: "Shop",
       image: "/images/products/accessories.jpg",
       alt: "Cannabis chocolate bar styled for the Legacy on Lark menu",
@@ -183,7 +183,7 @@ export const siteConfig = {
     {
       id: "tinctures",
       title: "Tinctures",
-      href: `${menuUrl.replace(/\/$/, "")}/categories/tinctures/`,
+      href: menuUrl,
       cta: "Shop",
       image: "/images/products/tinctures.jpg",
       alt: "Premium cannabis tincture bottles with gold droppers",

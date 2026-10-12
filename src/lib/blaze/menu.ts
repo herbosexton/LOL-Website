@@ -71,12 +71,8 @@ function getStoreId() {
   return process.env.BLAZE_STORE_ID?.trim() || DEFAULT_STORE_ID;
 }
 
-function getMenuBase() {
-  return siteConfig.menuUrl.replace(/\/$/, "");
-}
-
-export function getCategoryMenuHref(slug: MenuCategorySlug) {
-  return `${getMenuBase()}/categories/${slug}/`;
+export function getCategoryMenuHref(_slug?: MenuCategorySlug) {
+  return siteConfig.menuUrl;
 }
 
 function formatPrice(cents: number | null | undefined) {
@@ -84,12 +80,9 @@ function formatPrice(cents: number | null | undefined) {
   return Math.round(cents) / 100;
 }
 
-function resolveProductHref(attrs: BlazeAttrs, categorySlug: MenuCategorySlug) {
-  if (attrs.store_url) return attrs.store_url;
-  if (attrs.slug) {
-    return `${getMenuBase()}/products/${attrs.slug}/`;
-  }
-  return getCategoryMenuHref(categorySlug);
+function resolveProductHref(_attrs: BlazeAttrs, _categorySlug: MenuCategorySlug) {
+  // Deep product paths differ on the new menu host; send shoppers to the live menu.
+  return siteConfig.menuUrl;
 }
 
 function mapProduct(
