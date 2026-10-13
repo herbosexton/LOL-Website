@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { ImageHero } from "@/components/ui/ImageHero";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -38,23 +37,6 @@ export default function ShopPage() {
                 : "The ordering link is not connected yet. Explore the rest of the site or contact the shop."
             }
           />
-          <p>
-            <Link className={styles.textLink} href="/pickup">
-              Pickup
-            </Link>
-            {" · "}
-            <Link className={styles.textLink} href="/delivery">
-              Delivery
-            </Link>
-            {" · "}
-            <Link className={styles.textLink} href="/deals">
-              Deals
-            </Link>
-            {" · "}
-            <Link className={styles.textLink} href="/areas">
-              Neighborhoods
-            </Link>
-          </p>
           <div className={styles.actions}>
             <Button href={href} external={external} variant="primary">
               {getMenuLabel("Shop Now")}

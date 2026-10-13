@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { CategoryMosaic } from "@/components/home/CategoryMosaic";
-import { AreaLinks } from "@/components/seo/AreaLinks";
 import { ArticleCard } from "@/components/ui/ArticleCard";
 import { Button } from "@/components/ui/Button";
 import { CTASection } from "@/components/ui/CTASection";
@@ -59,19 +58,11 @@ export default function HomePage() {
                 downtown.
               </p>
               <p>
-                Order for{" "}
-                <Link className="text-link" href="/pickup">
-                  in-store pickup
-                </Link>
-                ,{" "}
+                Order for in-store pickup, or{" "}
                 <Link className="text-link" href="/delivery">
                   delivery
                 </Link>{" "}
-                in the towns we already serve, or check the{" "}
-                <Link className="text-link" href="/deals">
-                  menu for anything on special
-                </Link>
-                .
+                in the towns we already serve.
               </p>
               <Button href="/about" variant="outline">
                 Our story
@@ -199,29 +190,6 @@ export default function HomePage() {
         )}
       </section>
 
-      <section className={styles.areas} aria-label="Neighborhoods and towns">
-        <Reveal>
-          <div className={styles.areasHeader}>
-            <SectionHeading
-              eyebrow="Nearby"
-              title="A dispensary near these neighborhoods"
-              subtitle="One shop on Lark Street. North and east of downtown, plus the towns we already deliver to."
-            />
-            <p className={styles.areasIntro}>
-              Walk in from Center Square, come south from Arbor Hill, or order
-              delivery where we already serve.{" "}
-              <Link className="text-link" href="/areas">
-                See every area
-              </Link>
-              .
-            </p>
-          </div>
-        </Reveal>
-        <Reveal delay={2}>
-          <AreaLinks />
-        </Reveal>
-      </section>
-
       <section className={styles.visit}>
         <div className={styles.visitInner}>
           <Reveal variant="left">
@@ -232,9 +200,6 @@ export default function HomePage() {
                 subtitle="Center Square, Albany. In-store pickup, and delivery in the towns we already list."
               />
               <div className={styles.visitLinks}>
-                <Button href="/pickup" variant="outline">
-                  Pickup
-                </Button>
                 <Button href="/delivery" variant="outline">
                   Delivery
                 </Button>

@@ -40,14 +40,6 @@ export default function ContactPage() {
               <StoreInfo showActions />
             </div>
             <p style={{ marginTop: "1.25rem" }}>
-              <Link className={styles.textLink} href="/areas">
-                Neighborhoods and towns
-              </Link>
-              {" · "}
-              <Link className={styles.textLink} href="/pickup">
-                Pickup
-              </Link>
-              {" · "}
               <Link className={styles.textLink} href="/review">
                 Leave a Google review
               </Link>

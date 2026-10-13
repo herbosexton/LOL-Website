@@ -3,7 +3,6 @@ import type {
   CitationProfile,
   EducationTopic,
   FaqItem,
-  FeaturedDeal,
   JobOpening,
   NavLink,
   Person,
@@ -99,13 +98,6 @@ export const siteConfig = {
    */
   licenseNumber: "",
 
-  /**
-   * TODO(Herbert): add a deal only when the offer and details are real.
-   * Leave this empty rather than inventing a discount or a price.
-   * /deals sends guests to the live menu while this list is empty.
-   */
-  featuredDeals: [] as FeaturedDeal[],
-
   ageGate: {
     storageKey: "lol_age_verified",
     /** Duration in days before re-prompting */
@@ -137,10 +129,7 @@ export const siteConfig = {
   ] as NavLink[],
 
   visitLinks: [
-    { label: "Areas", href: "/areas" },
-    { label: "Pickup", href: "/pickup" },
     { label: "Delivery", href: "/delivery" },
-    { label: "Deals", href: "/deals" },
     { label: "Review", href: "/review" },
     { label: "Contact", href: "/contact" },
   ] as NavLink[],
@@ -447,7 +436,7 @@ export const siteConfig = {
       id: "near",
       question: "I am looking for a dispensary near me. Where are you?",
       answer:
-        "The shop is at 260 Lark Street in Center Square, one block from Washington Park and a short walk from downtown. Area pages cover Arbor Hill to the north, downtown and the Mansion neighborhood to the east and southeast, Menands to the northeast, and the towns where delivery is already offered.",
+        "The shop is at 260 Lark Street in Center Square, one block from Washington Park and a short walk from downtown. Delivery is available in the towns listed on the delivery page.",
     },
     {
       id: "age",

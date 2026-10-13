@@ -94,11 +94,6 @@ export interface CitationProfile {
   href: string;
 }
 
-export interface FeaturedDeal {
-  title: string;
-  detail: string;
-}
-
 export interface Person {
   name: string;
   role: string;

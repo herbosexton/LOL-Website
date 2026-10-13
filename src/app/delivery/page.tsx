@@ -1,6 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
-import { AreaLinks } from "@/components/seo/AreaLinks";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { CTASection } from "@/components/ui/CTASection";
 import { FAQAccordion } from "@/components/ui/FAQAccordion";
@@ -8,7 +6,6 @@ import { ImageHero } from "@/components/ui/ImageHero";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { siteConfig } from "@/config/site";
 import { getMenuHref, getMenuLabel, isExternalMenu } from "@/lib/menu";
-import { serviceAreas } from "@/config/areas";
 import { createMetadata, faqJsonLd } from "@/lib/seo";
 import styles from "@/styles/pages.module.css";
 
@@ -114,27 +111,6 @@ export default function DeliveryPage() {
           />
           <FAQAccordion items={[...siteConfig.deliveryFaqs]} />
         </div>
-      </section>
-
-      <section className={styles.section}>
-        <div className={styles.inner}>
-          <SectionHeading
-            title="Where delivery reaches"
-            subtitle="These pages match the published list. Menands is pickup only, and that is called out on its page."
-          />
-          <p>
-            Prefer to visit?{" "}
-            <Link className={styles.textLink} href="/pickup">
-              In-store pickup
-            </Link>{" "}
-            is at 260 Lark Street. The full set of neighborhood pages is on{" "}
-            <Link className={styles.textLink} href="/areas">
-              Areas
-            </Link>
-            .
-          </p>
-        </div>
-        <AreaLinks areas={serviceAreas.filter((area) => area.deliveryArea)} />
       </section>
 
       <CTASection
