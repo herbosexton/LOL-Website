@@ -35,6 +35,10 @@
   font-size: var(--text-sm);
 }
 
+.group + .group {
+  margin-top: 1.75rem;
+}
+
 .heading {
   font-family: var(--font-body);
   font-size: 0.7rem;

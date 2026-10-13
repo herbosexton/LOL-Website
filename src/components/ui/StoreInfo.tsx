@@ -1,6 +1,7 @@
 "use client";
 
 import { siteConfig } from "@/config/site";
+import { formatHoursRange } from "@/lib/hours";
 import { getMenuHref, getMenuLabel, isExternalMenu } from "@/lib/menu";
 import { trackEvent } from "@/lib/analytics";
 import { Button } from "@/components/ui/Button";
@@ -28,8 +29,8 @@ export function StoreInfo({
 
       <div className={styles.meta}>
         {siteConfig.hours.map((item) => (
-          <p key={item.label}>
-            <strong>{item.label}:</strong> {item.value}
+          <p key={item.day}>
+            <strong>{item.day}:</strong> {formatHoursRange(item.opens, item.closes)}
           </p>
         ))}
         {siteConfig.phone ? (

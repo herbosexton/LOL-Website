@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { siteConfig } from "@/config/site";
+import { groupStoreHours, openingHoursText } from "@/lib/hours";
 import { absoluteUrl } from "@/lib/utils";
 
 export function createMetadata({
@@ -44,71 +45,144 @@ export function createMetadata({
   };
 }
 
-function openingHoursJsonLd() {
+export function businessId() {
+  return `${siteConfig.url.replace(/\/$/, "")}/#business`;
+}
+
+function httpsUrls(values: readonly string[]) {
   return [
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday"],
-      opens: "08:00",
-      closes: "22:00",
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: "Friday",
-      opens: "08:00",
-      closes: "23:00",
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: "Saturday",
-      opens: "09:00",
-      closes: "23:00",
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: "Sunday",
-      opens: "11:00",
-      closes: "06:00",
-    },
+    ...new Set(
+      values.map((href) => href.trim()).filter((href) => /^https?:\/\//i.test(href)),
+    ),
   ];
 }
 
+export function sameAsUrls() {
+  return httpsUrls([
+    ...siteConfig.social.map((item) => item.href),
+    ...siteConfig.citationProfiles.map((item) => item.href),
+  ]);
+}
+
+/** Direct Google review URL, or null until Herbert pastes one. */
+export function googleReviewHref() {
+  const configured = siteConfig.googleReviewUrl.trim();
+  return /^https?:\/\//i.test(configured) ? configured : null;
+}
+
+function deliveryCities() {
+  return siteConfig.deliveryAreas.map((area) => ({
+    "@type": "City",
+    name: area.replace(/, NY$/, ""),
+  }));
+}
+
+function postalAddress() {
+  return {
+    "@type": "PostalAddress",
+    streetAddress: siteConfig.address.street,
+    addressLocality: siteConfig.address.city,
+    addressRegion: siteConfig.address.state,
+    postalCode: siteConfig.address.postalCode,
+    addressCountry: siteConfig.address.country,
+  };
+}
+
+/**
+ * Built only from siteConfig.hours. Sunday is included as published, including
+ * a close time earlier than open, which is the overnight value Herbert still
+ * needs to confirm. This function does not invent a different close.
+ */
+function openingHoursJsonLd() {
+  return groupStoreHours(siteConfig.hours).map((group) => ({
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: group.days.length === 1 ? group.days[0] : group.days,
+    opens: group.opens,
+    closes: group.closes,
+  }));
+}
+
 export function localBusinessJsonLd() {
-  const sameAs = siteConfig.social
-    .map((item) => item.href)
-    .filter((href) => /^https?:\/\//i.test(href));
+  const sameAs = sameAsUrls();
+  const id = businessId();
+  const cities = deliveryCities();
+  const license = siteConfig.licenseNumber.trim();
 
   return {
     "@context": "https://schema.org",
     "@type": ["Store", "LocalBusiness"],
-    "@id": `${siteConfig.url.replace(/\/$/, "")}/#business`,
+    "@id": id,
     name: siteConfig.name,
     alternateName: ["LOL Dispensary", "Legacy On Lark"],
     description: siteConfig.description,
     url: siteConfig.url,
     image: absoluteUrl("/images/og-default.jpg"),
+    logo: absoluteUrl("/images/logo.jpg"),
     priceRange: "$$",
     currenciesAccepted: "USD",
     paymentAccepted: "Cash",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: siteConfig.address.street,
-      addressLocality: siteConfig.address.city,
-      addressRegion: siteConfig.address.state,
-      postalCode: siteConfig.address.postalCode,
-      addressCountry: siteConfig.address.country,
-    },
+    menu: siteConfig.menuUrl,
+    address: postalAddress(),
     geo: {
       "@type": "GeoCoordinates",
       latitude: siteConfig.geo.latitude,
       longitude: siteConfig.geo.longitude,
     },
     hasMap: siteConfig.maps.google,
+    openingHours: openingHoursText(siteConfig.hours),
     openingHoursSpecification: openingHoursJsonLd(),
-    areaServed: siteConfig.deliveryAreas.map((area) => ({
-      "@type": "City",
-      name: area.replace(/, NY$/, ""),
-    })),
+    areaServed: cities,
+    makesOffer: [
+      {
+        "@type": "Offer",
+        name: "In-store pickup",
+        url: absoluteUrl("/pickup"),
+        availableAtOrFrom: { "@id": id },
+        itemOffered: {
+          "@type": "Service",
+          name: "In-store cannabis pickup",
+          serviceType: "Pickup",
+          url: absoluteUrl("/pickup"),
+          provider: { "@id": id },
+        },
+      },
+      {
+        "@type": "Offer",
+        name: "Cannabis delivery",
+        url: absoluteUrl("/delivery"),
+        areaServed: cities,
+        itemOffered: {
+          "@type": "Service",
+          name: "Cannabis delivery",
+          serviceType: "Delivery",
+          url: absoluteUrl("/delivery"),
+          provider: { "@id": id },
+          areaServed: cities,
+        },
+      },
+    ],
+    ...(siteConfig.featuredDeals.length
+      ? {
+          hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: "Confirmed deals",
+            itemListElement: siteConfig.featuredDeals.map((deal) => ({
+              "@type": "Offer",
+              name: deal.title,
+              description: deal.detail,
+            })),
+          },
+        }
+      : {}),
+    ...(license
+      ? {
+          identifier: {
+            "@type": "PropertyValue",
+            name: "New York OCM license",
+            value: license,
+          },
+        }
+      : {}),
     ...(siteConfig.phone
       ? {
           telephone: `+1${siteConfig.phone.replace(/\D/g, "")}`,
@@ -131,5 +205,42 @@ export function faqJsonLd(items: Array<{ question: string; answer: string }>) {
         text: item.answer,
       },
     })),
+  };
+}
+
+export function breadcrumbJsonLd(items: Array<{ name: string; path: string }>) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: absoluteUrl(item.path),
+    })),
+  };
+}
+
+export function webPageJsonLd({
+  name,
+  description,
+  path,
+}: {
+  name: string;
+  description: string;
+  path: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name,
+    description,
+    url: absoluteUrl(path),
+    about: { "@id": businessId() },
+    isPartOf: {
+      "@type": "WebSite",
+      name: siteConfig.name,
+      url: siteConfig.url,
+    },
   };
 }

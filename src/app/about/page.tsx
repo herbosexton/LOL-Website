@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { CTASection } from "@/components/ui/CTASection";
 import { ImageHero } from "@/components/ui/ImageHero";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -104,7 +105,12 @@ export default function AboutPage() {
             <p>
               We are rooted in Albany, on Lark Street, among neighbors, artists,
               and curious guests. Hospitality here means respect, warmth, and
-              room to ask questions.
+              room to ask questions. If you are coming from Arbor Hill, downtown,
+              the Mansion neighborhood, or a delivery town, the{" "}
+              <Link className={styles.textLink} href="/areas">
+                area pages
+              </Link>{" "}
+              explain the trip to this one shop.
             </p>
           </div>
           <div className={styles.prose}>

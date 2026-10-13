@@ -63,9 +63,40 @@ export interface SocialLink {
   label: string;
 }
 
+export type Weekday =
+  | "Monday"
+  | "Tuesday"
+  | "Wednesday"
+  | "Thursday"
+  | "Friday"
+  | "Saturday"
+  | "Sunday";
+
+/**
+ * Opens and closes are the only hours data. Page labels are formatted from
+ * these fields, and LocalBusiness schema reads the same values.
+ */
 export interface StoreHours {
-  label: string;
-  value: string;
+  day: Weekday;
+  /** 24-hour HH:MM */
+  opens: string;
+  /** 24-hour HH:MM */
+  closes: string;
+  /**
+   * True when this row still needs Herbert to confirm it.
+   * Display and schema still use opens/closes. Nothing is guessed.
+   */
+  unconfirmed?: boolean;
+}
+
+export interface CitationProfile {
+  name: string;
+  href: string;
+}
+
+export interface FeaturedDeal {
+  title: string;
+  detail: string;
 }
 
 export interface Person {

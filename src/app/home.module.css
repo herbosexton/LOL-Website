@@ -226,6 +226,31 @@
   margin: 2rem auto 0;
 }
 
+.visitLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.areas {
+  padding-block: clamp(4.5rem, 9vw, 8rem);
+  background: var(--lol-cream);
+}
+
+.areasHeader {
+  width: var(--container);
+  margin: 0 auto 2rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.areasIntro {
+  max-width: 40rem;
+  color: var(--lol-muted);
+  font-size: var(--text-md);
+}
+
 @media (max-width: 900px) {
   .introGrid,
   .visitInner,

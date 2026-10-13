@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { CategoryMosaic } from "@/components/home/CategoryMosaic";
+import { AreaLinks } from "@/components/seo/AreaLinks";
 import { ArticleCard } from "@/components/ui/ArticleCard";
 import { Button } from "@/components/ui/Button";
 import { CTASection } from "@/components/ui/CTASection";
@@ -18,7 +19,7 @@ import { createMetadata } from "@/lib/seo";
 import styles from "./home.module.css";
 
 export const metadata = createMetadata({
-  title: "Albany Cannabis Dispensary on Lark Street",
+  title: "Albany Dispensary on Lark Street",
   description: siteConfig.description,
   path: "/",
 });
@@ -53,6 +54,24 @@ export default function HomePage() {
               <p>
                 Come in for flower, edibles, vapes, drinks, and more. Stay for
                 straight talk and a shop that feels like home, not a hard sell.
+                If you searched for a dispensary near you, we are at 260 Lark
+                Street, one block from Washington Park and a short walk from
+                downtown.
+              </p>
+              <p>
+                Order for{" "}
+                <Link className="text-link" href="/pickup">
+                  in-store pickup
+                </Link>
+                ,{" "}
+                <Link className="text-link" href="/delivery">
+                  delivery
+                </Link>{" "}
+                in the towns we already serve, or check the{" "}
+                <Link className="text-link" href="/deals">
+                  menu for anything on special
+                </Link>
+                .
               </p>
               <Button href="/about" variant="outline">
                 Our story
@@ -180,14 +199,50 @@ export default function HomePage() {
         )}
       </section>
 
+      <section className={styles.areas} aria-label="Neighborhoods and towns">
+        <Reveal>
+          <div className={styles.areasHeader}>
+            <SectionHeading
+              eyebrow="Nearby"
+              title="A dispensary near these neighborhoods"
+              subtitle="One shop on Lark Street. North and east of downtown, plus the towns we already deliver to."
+            />
+            <p className={styles.areasIntro}>
+              Walk in from Center Square, come south from Arbor Hill, or order
+              delivery where we already serve.{" "}
+              <Link className="text-link" href="/areas">
+                See every area
+              </Link>
+              .
+            </p>
+          </div>
+        </Reveal>
+        <Reveal delay={2}>
+          <AreaLinks />
+        </Reveal>
+      </section>
+
       <section className={styles.visit}>
         <div className={styles.visitInner}>
           <Reveal variant="left">
-            <SectionHeading
-              eyebrow="Visit"
-              title="260 Lark Street"
-              subtitle="Center Square, Albany. Pickup in-store, delivery across the Capital Region."
-            />
+            <div>
+              <SectionHeading
+                eyebrow="Visit"
+                title="260 Lark Street"
+                subtitle="Center Square, Albany. In-store pickup, and delivery in the towns we already list."
+              />
+              <div className={styles.visitLinks}>
+                <Button href="/pickup" variant="outline">
+                  Pickup
+                </Button>
+                <Button href="/delivery" variant="outline">
+                  Delivery
+                </Button>
+                <Button href="/review" variant="outline">
+                  Leave a review
+                </Button>
+              </div>
+            </div>
           </Reveal>
           <Reveal variant="right" delay={2}>
             <StoreInfo />

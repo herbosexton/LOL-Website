@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { ImageHero } from "@/components/ui/ImageHero";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -7,9 +8,9 @@ import { createMetadata } from "@/lib/seo";
 import styles from "@/styles/pages.module.css";
 
 export const metadata = createMetadata({
-  title: "Shop Cannabis Online",
+  title: "Shop the Albany Dispensary Menu",
   description:
-    "Shop the Legacy on Lark live menu for flower, edibles, vapes, drinks, and more. Pickup in Albany, NY, adults 21+.",
+    "Shop the Legacy on Lark menu for flower, edibles, vapes, drinks, and more. Pickup at 260 Lark St in Albany, or delivery in supported towns. Adults 21+.",
   path: "/shop",
 });
 
@@ -21,8 +22,8 @@ export default function ShopPage() {
     <>
       <ImageHero
         eyebrow="Shop"
-        title="The Menu"
-        copy="Ordering is powered by our external cannabis menu platform when configured."
+        title="The Albany dispensary menu"
+        copy="Order flower, edibles, vapes, drinks, and more for pickup at 260 Lark Street, or delivery where we already serve."
         image="/images/lifestyle/brand-flatlay.jpg"
         alt="Product-inspired visual introducing the Legacy on Lark shop"
         compact
@@ -33,11 +34,28 @@ export default function ShopPage() {
             title={siteConfig.hasMenuUrl ? "Open the Live Menu" : "Menu Coming Soon"}
             subtitle={
               siteConfig.hasMenuUrl
-                ? "Continue to our ordering platform to browse products and place an order."
-                : "Set NEXT_PUBLIC_MENU_URL to connect your ordering platform. Until then, explore the rest of the site or contact us."
+                ? "The live menu is the current list. Pickup is at 260 Lark Street in Center Square."
+                : "The ordering link is not connected yet. Explore the rest of the site or contact the shop."
             }
           />
-          <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
+          <p>
+            <Link className={styles.textLink} href="/pickup">
+              Pickup
+            </Link>
+            {" · "}
+            <Link className={styles.textLink} href="/delivery">
+              Delivery
+            </Link>
+            {" · "}
+            <Link className={styles.textLink} href="/deals">
+              Deals
+            </Link>
+            {" · "}
+            <Link className={styles.textLink} href="/areas">
+              Neighborhoods
+            </Link>
+          </p>
+          <div className={styles.actions}>
             <Button href={href} external={external} variant="primary">
               {getMenuLabel("Shop Now")}
             </Button>
