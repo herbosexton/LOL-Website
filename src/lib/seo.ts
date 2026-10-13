@@ -109,7 +109,11 @@ export function localBusinessJsonLd() {
       "@type": "City",
       name: area.replace(/, NY$/, ""),
     })),
-    ...(siteConfig.phone ? { telephone: siteConfig.phone } : {}),
+    ...(siteConfig.phone
+      ? {
+          telephone: `+1${siteConfig.phone.replace(/\D/g, "")}`,
+        }
+      : {}),
     ...(siteConfig.email ? { email: siteConfig.email } : {}),
     ...(sameAs.length ? { sameAs } : {}),
   };

@@ -37,8 +37,8 @@ export const siteConfig = {
   },
 
   // Leave empty until confirmed, UI hides empty fields (do not invent).
-  phone: "" as string,
-  email: "" as string,
+  phone: "(518) 512-3232",
+  email: "support@loldispensary.com",
   hours: [
     { label: "Monday", value: "8am-10pm" },
     { label: "Tuesday", value: "8am-10pm" },
