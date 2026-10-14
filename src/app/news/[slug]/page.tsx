@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArticleBody } from "@/components/news/ArticleBody";
 import { getAllArticles, getArticleBySlug } from "@/lib/content/news";
@@ -20,7 +21,8 @@ export async function generateMetadata({
   if (!article) {
     return createMetadata({
       title: "Article Not Found",
-      description: "This article could not be found.",
+      description:
+        "That article is not published on the Legacy on Lark site. Browse news from our Albany dispensary on Lark Street, or return home. Adults 21+.",
       path: `/news/${slug}`,
       noIndex: true,
     });
@@ -30,6 +32,10 @@ export async function generateMetadata({
     description: article.seoDescription,
     path: `/news/${article.slug}`,
     image: article.featuredImage,
+    imageAlt: article.featuredImageAlt,
+    openGraphType: "article",
+    publishedTime: article.date,
+    authors: [article.author],
   });
 }
 
@@ -63,6 +69,15 @@ export default async function ArticlePage({
         <p className={styles.excerpt}>{article.excerpt}</p>
         <div className={styles.body}>
           <ArticleBody source={article.body} />
+        </div>
+        <div className={styles.related}>
+          <h2>More from Lark Street</h2>
+          <nav className={styles.relatedLinks} aria-label="Related pages">
+            <Link href="/news">All shop news</Link>
+            <Link href="/ai-guide">Product guide</Link>
+            <Link href="/shop">Shop the menu</Link>
+            <Link href="/contact">Visit 260 Lark Street</Link>
+          </nav>
         </div>
       </div>
     </article>

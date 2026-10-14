@@ -1,10 +1,12 @@
 import Image from "next/image";
+import Link from "next/link";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { CTASection } from "@/components/ui/CTASection";
 import { FAQAccordion } from "@/components/ui/FAQAccordion";
 import { ImageHero } from "@/components/ui/ImageHero";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { siteConfig } from "@/config/site";
+import { imageAlt } from "@/lib/image-alts";
 import { getMenuHref, getMenuLabel, isExternalMenu } from "@/lib/menu";
 import { createMetadata, faqJsonLd } from "@/lib/seo";
 import styles from "@/styles/pages.module.css";
@@ -12,7 +14,7 @@ import styles from "@/styles/pages.module.css";
 export const metadata = createMetadata({
   title: "Dispensary Delivery in Albany",
   description:
-    "Dispensary delivery in Albany from Legacy on Lark, plus Clifton Park, Latham, Schenectady, and Troy. Pickup at 260 Lark St. Adults 21+ with valid ID.",
+    "Cannabis delivery from Legacy on Lark at 260 Lark Street in Albany, plus Clifton Park, Latham, Schenectady, and Troy. Adults 21+ with valid ID.",
   path: "/delivery",
 });
 
@@ -26,7 +28,7 @@ export default function DeliveryPage() {
         title="Dispensary delivery in Albany"
         copy="Order online and get it brought to a supported town, or pick it up on Lark Street. Adults 21+ with valid ID."
         image="/images/delivery/hero.jpg"
-        alt="Refined green backdrop introducing Legacy on Lark delivery"
+        alt={imageAlt.deliveryVan}
       />
 
       <section className={styles.section}>
@@ -41,13 +43,25 @@ export default function DeliveryPage() {
               platform. We do not list fees, minimums, or cutoff times here unless
               they are confirmed.
             </p>
+            <p>
+              You can also{" "}
+              <Link className={styles.textLink} href="/shop">
+                browse the shop page
+              </Link>{" "}
+              and pick up at{" "}
+              <Link className={styles.textLink} href="/contact">
+                260 Lark Street in Albany
+              </Link>
+              .
+            </p>
           </div>
           <div className={styles.media}>
             <Image
               src="/images/delivery/hero.jpg"
-              alt="Delivery service visual for Legacy on Lark"
+              alt=""
               fill
               sizes="(max-width: 900px) 100vw, 45vw"
+              loading="lazy"
             />
           </div>
         </div>

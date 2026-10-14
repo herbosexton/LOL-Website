@@ -13,6 +13,7 @@ export function ArticleCard({ article }: { article: Article }) {
           alt={article.featuredImageAlt}
           fill
           sizes="(max-width: 768px) 100vw, 33vw"
+          loading="lazy"
         />
       </Link>
       <div className={styles.meta}>
@@ -24,7 +25,7 @@ export function ArticleCard({ article }: { article: Article }) {
       </h3>
       <p className={styles.excerpt}>{article.excerpt}</p>
       <Link href={`/news/${article.slug}`} className={styles.more}>
-        Read More
+        Read {article.title}
       </Link>
     </article>
   );

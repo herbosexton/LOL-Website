@@ -2,9 +2,16 @@
   padding-bottom: 5rem;
 }
 
-.list {
+.listHeader {
   width: var(--container);
   margin: 2.5rem auto 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.list {
+  width: var(--container);
+  margin: 1.75rem auto 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.75rem;

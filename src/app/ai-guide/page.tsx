@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { PreferenceGuide } from "@/components/ai/PreferenceGuide";
 import { FAQAccordion } from "@/components/ui/FAQAccordion";
 import { ImageHero } from "@/components/ui/ImageHero";
@@ -5,13 +6,14 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { TerpeneCard } from "@/components/ui/TerpeneCard";
 import { HorizontalScroller } from "@/components/ui/HorizontalScroller";
 import { siteConfig } from "@/config/site";
+import { imageAlt } from "@/lib/image-alts";
 import { createMetadata } from "@/lib/seo";
 import styles from "@/styles/pages.module.css";
 
 export const metadata = createMetadata({
-  title: "Product Guide",
+  title: "Cannabis Guide in Albany",
   description:
-    "Learn cannabis basics, terpenes, and product types at Legacy on Lark in Albany, NY. Optional short quiz for adults 21+ who want a starting point.",
+    "Plain-language cannabis education from Legacy on Lark, on Lark Street in Albany. Terpenes, product types, and an optional short quiz. Adults 21+.",
   path: "/ai-guide",
 });
 
@@ -23,7 +25,7 @@ export default function AiGuidePage() {
         title="Find what fits"
         copy="Plain-language cannabis education, plus a short quiz if you want help narrowing options."
         image="/images/ai-guide/hero.jpg"
-        alt="Soft gold atmosphere introducing the Legacy product guide"
+        alt={imageAlt.guideHero}
       />
 
       <section className={styles.section} id="fundamentals">
@@ -37,6 +39,17 @@ export default function AiGuidePage() {
               Cannabis products differ in onset, duration, and format. Understanding
               those basics helps you browse with more clarity. Individual experiences
               vary, there is no single right answer for everyone.
+            </p>
+            <p>
+              When you are ready,{" "}
+              <Link className={styles.textLink} href="/shop">
+                shop the Albany menu
+              </Link>{" "}
+              or{" "}
+              <Link className={styles.textLink} href="/contact">
+                ask the team at 260 Lark Street
+              </Link>
+              .
             </p>
           </div>
         </div>

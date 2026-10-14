@@ -1,14 +1,16 @@
 import Image from "next/image";
+import Link from "next/link";
 import { CultureCard } from "@/components/ui/CultureCard";
 import { ImageHero } from "@/components/ui/ImageHero";
 import { KultureAnalytics } from "@/app/kulture/KultureAnalytics";
+import { imageAlt } from "@/lib/image-alts";
 import { createMetadata } from "@/lib/seo";
 import styles from "./page.module.css";
 
 export const metadata = createMetadata({
-  title: "Kulture",
+  title: "Kulture on Lark Street",
   description:
-    "Kulture at Legacy on Lark, an editorial space for Black culture, creativity, community, history, and legacy in Albany, NY.",
+    "Kulture is the editorial space at Legacy on Lark, the Albany dispensary on Lark Street. Stories of culture, creativity, community, and history.",
   path: "/kulture",
 });
 
@@ -21,7 +23,7 @@ export default function KulturePage() {
         title="Legacy Lives in Culture"
         copy="A late-night jazz lounge energy meets Black-owned gallery calm, creative, confident, and expansive."
         image="/images/kulture/hero.jpg"
-        alt="Cinematic near-black Kulture hero atmosphere"
+        alt={imageAlt.kultureHero}
       />
 
       <section className={styles.section}>
@@ -43,9 +45,10 @@ export default function KulturePage() {
           <div className={styles.media}>
             <Image
               src="/images/kulture/roots.jpg"
-              alt="Textural imagery suggesting roots, lineage, and memory"
+              alt={imageAlt.roots}
               fill
               sizes="(max-width: 900px) 100vw, 55vw"
+              loading="lazy"
             />
           </div>
           <div className={styles.inner}>
@@ -71,9 +74,10 @@ export default function KulturePage() {
           <div className={styles.media}>
             <Image
               src="/images/kulture/rhythm.jpg"
-              alt="Dark studio-like visual suggesting music and performance"
+              alt={imageAlt.rhythm}
               fill
               sizes="(max-width: 900px) 100vw, 45vw"
+              loading="lazy"
             />
           </div>
         </div>
@@ -108,9 +112,10 @@ export default function KulturePage() {
           <div className={styles.media}>
             <Image
               src="/images/kulture/community.jpg"
-              alt="Community gathering atmosphere in a refined dark setting"
+              alt={imageAlt.hands}
               fill
               sizes="(max-width: 900px) 100vw, 55vw"
+              loading="lazy"
             />
           </div>
           <div className={styles.inner}>
@@ -129,16 +134,17 @@ export default function KulturePage() {
         </div>
         <div className={styles.gallery}>
           {[
-            "/images/kulture/gallery-1.jpg",
-            "/images/kulture/gallery-2.jpg",
-            "/images/kulture/gallery-3.jpg",
-          ].map((src, index) => (
-            <div key={src} className={styles.galleryItem}>
+            { src: "/images/kulture/gallery-1.jpg", alt: imageAlt.galleryRecord },
+            { src: "/images/kulture/gallery-2.jpg", alt: imageAlt.gallerySinger },
+            { src: "/images/kulture/gallery-3.jpg", alt: imageAlt.galleryHat },
+          ].map((item) => (
+            <div key={item.src} className={styles.galleryItem}>
               <Image
-                src={src}
-                alt={`Kulture gallery image ${index + 1}`}
+                src={item.src}
+                alt={item.alt}
                 fill
                 sizes="(max-width: 900px) 100vw, 50vw"
+                loading="lazy"
               />
             </div>
           ))}
@@ -158,11 +164,33 @@ export default function KulturePage() {
           <div className={styles.media}>
             <Image
               src="/images/kulture/history.jpg"
-              alt="Editorial dark imagery for cannabis and cultural history"
+              alt={imageAlt.history}
               fill
               sizes="(max-width: 900px) 100vw, 45vw"
+              loading="lazy"
             />
           </div>
+        </div>
+      </section>
+
+      <section className={styles.section}>
+        <div className={styles.inner}>
+          <h2>Visit the shop</h2>
+          <p className={styles.copy}>
+            Kulture is part of the dispensary at{" "}
+            <Link className={styles.textLink} href="/contact">
+              260 Lark Street in Albany
+            </Link>
+            .{" "}
+            <Link className={styles.textLink} href="/about">
+              Read the Legacy on Lark story
+            </Link>
+            , or{" "}
+            <Link className={styles.textLink} href="/shop">
+              shop the menu
+            </Link>
+            .
+          </p>
         </div>
       </section>
 

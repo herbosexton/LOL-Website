@@ -1,15 +1,17 @@
+import Link from "next/link";
 import { CareerApplicationForm } from "@/components/careers/CareerApplicationForm";
 import { ImageHero } from "@/components/ui/ImageHero";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { siteConfig } from "@/config/site";
+import { imageAlt } from "@/lib/image-alts";
 import { createMetadata } from "@/lib/seo";
 import styles from "@/styles/pages.module.css";
 import careerStyles from "./page.module.css";
 
 export const metadata = createMetadata({
-  title: "Careers",
+  title: "Careers on Lark Street",
   description:
-    "Join Legacy on Lark in Albany. Apply for Budtender and Inventory Specialist roles.",
+    "Apply to work at Legacy on Lark, the Albany dispensary at 260 Lark Street. Budtender and inventory specialist roles are open. Adults 21+ only.",
   path: "/careers",
 });
 
@@ -29,7 +31,7 @@ export default async function CareersPage({
         title="Work With Legacy"
         copy="Build culture, hospitality, and craft on Lark Street, roles for adults 21+ who care about the guest experience."
         image="/images/about/store-interior.jpg"
-        alt="Interior of Legacy on Lark in Albany"
+        alt={imageAlt.storefront}
         compact
       />
 
@@ -81,10 +83,23 @@ export default async function CareersPage({
               title="Apply"
               subtitle="Applications go to careers@loldispensary.com. Adults 21+ only."
             />
-            <p className={styles.prose}>
-              Share a clear note about your experience and availability. We’ll follow
-              up if there’s a fit.
-            </p>
+            <div className={styles.prose}>
+              <p>
+                Share a clear note about your experience and availability. We’ll follow
+                up if there’s a fit.
+              </p>
+              <p>
+                Learn{" "}
+                <Link className={styles.textLink} href="/about">
+                  who built the Lark Street shop
+                </Link>
+                , or{" "}
+                <Link className={styles.textLink} href="/contact">
+                  contact the Albany store
+                </Link>{" "}
+                with a question.
+              </p>
+            </div>
           </div>
           <CareerApplicationForm defaultRole={defaultRole} />
         </div>

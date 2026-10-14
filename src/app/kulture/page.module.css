@@ -27,6 +27,12 @@
   font-size: var(--text-md);
 }
 
+.textLink {
+  color: var(--lol-gold);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
 .split {
   width: var(--container-wide);
   margin-inline: auto;

@@ -30,8 +30,8 @@ export function CategoryCard({
           alt={item.alt}
           fill
           sizes="(max-width: 768px) 100vw, 50vw"
-          priority={priority}
           style={{ objectPosition: item.objectPosition || "50% 50%" }}
+          {...(priority ? { priority: true } : { loading: "lazy" as const })}
         />
       </div>
       {item.overlay !== false ? <div className={styles.overlay} aria-hidden /> : null}

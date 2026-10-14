@@ -25,6 +25,7 @@ export function ProductCard({ product }: { product: MenuProduct }) {
             alt={product.name}
             fill
             sizes="(max-width: 768px) 70vw, 220px"
+            loading="lazy"
           />
         ) : (
           <div className={styles.placeholder} aria-hidden />

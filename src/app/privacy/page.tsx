@@ -1,10 +1,13 @@
+import Link from "next/link";
 import { ImageHero } from "@/components/ui/ImageHero";
+import { imageAlt } from "@/lib/image-alts";
 import { createMetadata } from "@/lib/seo";
 import styles from "@/styles/pages.module.css";
 
 export const metadata = createMetadata({
   title: "Privacy Policy",
-  description: "Privacy policy for Legacy on Lark.",
+  description:
+    "Privacy policy for Legacy on Lark, the Albany dispensary at 260 Lark Street. How this website handles information you choose to send us. Adults 21+.",
   path: "/privacy",
 });
 
@@ -15,7 +18,7 @@ export default function PrivacyPage() {
         title="Privacy Policy"
         copy="How we handle information on this website."
         image="/images/og-default.jpg"
-        alt=""
+        alt={imageAlt.storefront}
         compact
       />
       <section className={styles.section}>
@@ -32,8 +35,8 @@ export default function PrivacyPage() {
           </p>
           <p>
             This policy may be updated as operations evolve. For privacy questions,
-            use the contact form or reach out using the store contact details published
-            on this site.
+            use the <Link className={styles.textLink} href="/contact">contact form</Link> or
+            reach out using the store contact details published on this site.
           </p>
         </div>
       </section>

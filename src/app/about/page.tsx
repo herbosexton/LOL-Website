@@ -1,16 +1,18 @@
 import Image from "next/image";
+import Link from "next/link";
 import { CTASection } from "@/components/ui/CTASection";
 import { ImageHero } from "@/components/ui/ImageHero";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { siteConfig } from "@/config/site";
+import { imageAlt } from "@/lib/image-alts";
 import { getMenuHref, isExternalMenu } from "@/lib/menu";
 import { createMetadata } from "@/lib/seo";
 import styles from "@/styles/pages.module.css";
 
 export const metadata = createMetadata({
-  title: "About",
+  title: "About the Lark Street Shop",
   description:
-    "Meet the team behind Legacy on Lark, an adult-use cannabis dispensary at 260 Lark St in Albany, NY, built by family, friends, and local partners.",
+    "Meet the people behind Legacy on Lark, the adult-use dispensary at 260 Lark Street in Albany. Family, friends, and a shop built for neighbors.",
   path: "/about",
 });
 
@@ -24,7 +26,7 @@ export default function AboutPage() {
         title="Built by people who care"
         copy="Legacy on Lark started with family, friendship, and a plan to run a real shop on Lark Street, not a corporate copy."
         image="/images/about/store-interior.jpg"
-        alt="Warm green-toned atmosphere representing the Legacy on Lark story"
+        alt={imageAlt.storefront}
       />
 
       <section className={styles.section}>
@@ -45,9 +47,10 @@ export default function AboutPage() {
           <div className={styles.media}>
             <Image
               src="/images/about/community.jpg"
-              alt="Community-minded atmosphere tied to Legacy on Lark"
+              alt={imageAlt.prerollOverJar}
               fill
               sizes="(max-width: 900px) 100vw, 45vw"
+              loading="lazy"
             />
           </div>
         </div>
@@ -83,6 +86,11 @@ export default function AboutPage() {
             title="People Behind Legacy"
             subtitle="The crew that made 260 Lark Street happen."
           />
+          <p>
+            <Link className={styles.textLink} href="/careers">
+              See open roles at the Albany shop.
+            </Link>
+          </p>
         </div>
         <div className={styles.grid3}>
           {siteConfig.people.map((person) => (
@@ -105,6 +113,21 @@ export default function AboutPage() {
               We are rooted in Albany, on Lark Street, among neighbors, artists,
               and curious guests. Hospitality here means respect, warmth, and
               room to ask questions.
+            </p>
+            <p>
+              Pickup is at{" "}
+              <Link className={styles.textLink} href="/contact">
+                260 Lark Street in Albany
+              </Link>
+              . We also offer{" "}
+              <Link className={styles.textLink} href="/delivery">
+                delivery in Albany and nearby towns
+              </Link>
+              , and guests can{" "}
+              <Link className={styles.textLink} href="/review">
+                leave a Google review
+              </Link>{" "}
+              after a visit.
             </p>
           </div>
           <div className={styles.prose}>

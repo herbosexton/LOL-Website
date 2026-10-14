@@ -1,20 +1,31 @@
 import type { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 import { groupStoreHours, openingHoursText } from "@/lib/hours";
+import { imageAlt } from "@/lib/image-alts";
 import { absoluteUrl } from "@/lib/utils";
+
+const shareImage = "/images/og-default.png";
 
 export function createMetadata({
   title,
   description,
   path = "/",
-  image = "/images/og-default.jpg",
+  image = shareImage,
+  imageAlt: imageAltOverride,
   noIndex = false,
+  openGraphType = "website",
+  publishedTime,
+  authors,
 }: {
   title: string;
   description: string;
   path?: string;
   image?: string;
+  imageAlt?: string;
   noIndex?: boolean;
+  openGraphType?: "website" | "article";
+  publishedTime?: string;
+  authors?: string[];
 }): Metadata {
   const url = absoluteUrl(path);
   // Child routes stay bare so the root layout template appends the site name once.
@@ -22,6 +33,22 @@ export function createMetadata({
   const pageTitle = title;
   const displayTitle =
     title === siteConfig.name ? title : `${title} | ${siteConfig.name}`;
+  const isShareCard = image === shareImage;
+  const alt =
+    imageAltOverride ?? (isShareCard ? imageAlt.shareCard : displayTitle);
+  const socialImage = {
+    url: absoluteUrl(image),
+    alt,
+    ...(isShareCard ? { width: 1200, height: 630 } : {}),
+  };
+  const openGraphBase = {
+    title: displayTitle,
+    description,
+    url,
+    siteName: siteConfig.name,
+    locale: "en_US" as const,
+    images: [socialImage],
+  };
 
   return {
     // The root layout template does not apply to the root page segment.
@@ -29,20 +56,23 @@ export function createMetadata({
     description,
     alternates: { canonical: url },
     robots: noIndex ? { index: false, follow: false } : { index: true, follow: true },
-    openGraph: {
-      title: displayTitle,
-      description,
-      url,
-      siteName: siteConfig.name,
-      locale: "en_US",
-      type: "website",
-      images: [{ url: absoluteUrl(image), width: 1200, height: 630, alt: displayTitle }],
-    },
+    openGraph:
+      openGraphType === "article"
+        ? {
+            ...openGraphBase,
+            type: "article",
+            publishedTime,
+            authors,
+          }
+        : {
+            ...openGraphBase,
+            type: "website",
+          },
     twitter: {
       card: "summary_large_image",
       title: displayTitle,
       description,
-      images: [absoluteUrl(image)],
+      images: [socialImage],
     },
   };
 }

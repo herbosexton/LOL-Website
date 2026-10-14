@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { siteConfig } from "@/config/site";
+import { imageAlt } from "@/lib/image-alts";
 import styles from "./MobileMenu.module.css";
 
 export function MobileMenu({
@@ -40,7 +41,13 @@ export function MobileMenu({
     <div className={styles.overlay} role="dialog" aria-modal="true" aria-label="Menu">
       <div className={styles.top}>
         <Link href="/" onClick={onClose} aria-label="Legacy on Lark home">
-          <Image src="/images/logo.jpg" alt="Legacy on Lark" width={48} height={48} unoptimized />
+          <Image
+            src="/images/logo.jpg"
+            alt={imageAlt.logo}
+            width={49}
+            height={48}
+            unoptimized
+          />
         </Link>
         <button
           ref={closeRef}

@@ -12,6 +12,7 @@ import { StoreInfo } from "@/components/ui/StoreInfo";
 import { TerpeneCard } from "@/components/ui/TerpeneCard";
 import { VideoHero } from "@/components/ui/VideoHero";
 import { siteConfig } from "@/config/site";
+import { imageAlt } from "@/lib/image-alts";
 import { getAllArticles } from "@/lib/content/news";
 import { getMenuHref, isExternalMenu } from "@/lib/menu";
 import { createMetadata } from "@/lib/seo";
@@ -37,9 +38,10 @@ export default function HomePage() {
             <div className={styles.introMedia}>
               <Image
                 src="/images/about/welcome.jpg"
-                alt="Budtender and guest exploring cannabis flower together at Legacy on Lark"
+                alt={imageAlt.budOverJar}
                 fill
                 sizes="(max-width: 900px) 100vw, 48vw"
+                loading="lazy"
               />
             </div>
           </Reveal>
@@ -58,11 +60,14 @@ export default function HomePage() {
                 downtown.
               </p>
               <p>
-                Order for in-store pickup, or{" "}
+                <Link className="text-link" href="/shop">
+                  Shop the Lark Street menu
+                </Link>
+                , order for in-store pickup, or{" "}
                 <Link className="text-link" href="/delivery">
-                  delivery
-                </Link>{" "}
-                in the towns we already serve.
+                  delivery in Albany and nearby towns
+                </Link>
+                .
               </p>
               <Button href="/about" variant="outline">
                 Our story
@@ -96,14 +101,12 @@ export default function HomePage() {
         <Reveal>
           <div className={styles.terpenesHeader}>
             <SectionHeading
+              id="terpenes-heading"
               align="center"
               eyebrow="Terpenes"
               title="Smell first"
               subtitle="These aroma notes show up a lot on our shelves. Swipe through a few."
             />
-            <h2 id="terpenes-heading" className="sr-only">
-              Terpene explorer
-            </h2>
           </div>
         </Reveal>
         <Reveal delay={2}>
@@ -120,9 +123,10 @@ export default function HomePage() {
           <div className={styles.kultureMedia} data-parallax="0.12">
             <Image
               src="/images/kulture/hero.jpg"
-              alt="Cinematic dark atmosphere representing Kulture at Legacy on Lark"
+              alt={imageAlt.kultureHero}
               fill
               sizes="100vw"
+              loading="lazy"
             />
           </div>
           <div className={styles.kultureOverlay} aria-hidden />
