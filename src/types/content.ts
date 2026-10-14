@@ -82,11 +82,6 @@ export interface StoreHours {
   opens: string;
   /** 24-hour HH:MM */
   closes: string;
-  /**
-   * True when this row still needs Herbert to confirm it.
-   * Display and schema still use opens/closes. Nothing is guessed.
-   */
-  unconfirmed?: boolean;
 }
 
 export interface CitationProfile {

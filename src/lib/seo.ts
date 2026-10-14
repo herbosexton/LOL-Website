@@ -88,11 +88,7 @@ function postalAddress() {
   };
 }
 
-/**
- * Built only from siteConfig.hours. Sunday is included as published, including
- * a close time earlier than open, which is the overnight value Herbert still
- * needs to confirm. This function does not invent a different close.
- */
+/** Built only from siteConfig.hours. Do not keep a second hours list. */
 function openingHoursJsonLd() {
   return groupStoreHours(siteConfig.hours).map((group) => ({
     "@type": "OpeningHoursSpecification",

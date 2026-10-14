@@ -43,10 +43,7 @@ export const siteConfig = {
   /**
    * Single source for on-page hours and LocalBusiness schema.
    * Display text is formatted from opens/closes. Do not keep a second list.
-   *
-   * TODO(Herbert): Confirm Sunday. 11:00 to 06:00 is the published 11am-6am
-   * value (11 AM to 6 AM). That overnight close looks like a typo for 6pm.
-   * It is intentionally unchanged. Do not guess a new close time.
+   * Confirmed from the public Google listing, Eastern time.
    */
   hours: [
     { day: "Monday", opens: "08:00", closes: "22:00" },
@@ -55,7 +52,7 @@ export const siteConfig = {
     { day: "Thursday", opens: "08:00", closes: "22:00" },
     { day: "Friday", opens: "08:00", closes: "23:00" },
     { day: "Saturday", opens: "09:00", closes: "23:00" },
-    { day: "Sunday", opens: "11:00", closes: "06:00", unconfirmed: true },
+    { day: "Sunday", opens: "10:00", closes: "18:00" },
   ] as StoreHours[],
 
   maps: {
