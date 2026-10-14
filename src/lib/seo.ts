@@ -17,13 +17,15 @@ export function createMetadata({
   noIndex?: boolean;
 }): Metadata {
   const url = absoluteUrl(path);
-  // Leave bare titles so root layout `title.template` can append the site name once.
+  // Child routes stay bare so the root layout template appends the site name once.
+  // The root page is the same segment as that layout, so its title has to be absolute.
   const pageTitle = title;
   const displayTitle =
     title === siteConfig.name ? title : `${title} | ${siteConfig.name}`;
 
   return {
-    title: pageTitle,
+    // The root layout template does not apply to the root page segment.
+    title: path === "/" ? { absolute: displayTitle } : pageTitle,
     description,
     alternates: { canonical: url },
     robots: noIndex ? { index: false, follow: false } : { index: true, follow: true },
@@ -64,7 +66,7 @@ export function sameAsUrls() {
   ]);
 }
 
-/** Direct Google review URL, or null until Herbert pastes one. */
+/** Direct Google review URL when siteConfig.googleReviewUrl is an http(s) link. */
 export function googleReviewHref() {
   const configured = siteConfig.googleReviewUrl.trim();
   return /^https?:\/\//i.test(configured) ? configured : null;

@@ -83,11 +83,13 @@ export const siteConfig = {
   ] as CitationProfile[],
 
   /**
-   * TODO(Herbert): paste the Google review link from the Business Profile
-   * (Share, then Ask for reviews). Leave this empty until you have it.
-   * /review stays the counter QR target either way.
+   * Official Google write-review URL for the verified Place ID.
+   * Herbert can replace this with a https://g.page/r/<id>/review short link
+   * from Business Profile if he prefers that share link.
+   * The counter QR still points at /review, not at this URL.
    */
-  googleReviewUrl: "",
+  googleReviewUrl:
+    "https://search.google.com/local/writereview?placeid=ChIJqXE-01IL3okR31P57jKB12A",
 
   /**
    * TODO(Herbert): paste the OCM license number if it should appear in schema.

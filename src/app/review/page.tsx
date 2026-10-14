@@ -23,7 +23,7 @@ const faqs = [
     id: "who",
     question: "Who should review?",
     answer:
-      "Anyone who has visited or ordered. Honest reviews help, including short ones. You do not need to write a long note.",
+      "Every guest who has visited or ordered. A short honest note is enough. There is no reward for reviewing, and the visit does not need to have been a great one.",
   },
 ];
 
@@ -42,7 +42,7 @@ export default function ReviewPage() {
       <ImageHero
         eyebrow="Reviews"
         title="Leave a Google review"
-        copy="If you have been to Legacy on Lark, a Google review helps the next person in Albany find the shop."
+        copy="Every guest who has visited or ordered can leave a Google review. It helps the next person in Albany find the shop."
         image="/images/about/welcome.jpg"
         alt="Guest and budtender at Legacy on Lark"
         compact
@@ -56,15 +56,14 @@ export default function ReviewPage() {
               subtitle="Check that the listing says 260 Lark Street before you post."
             />
             <ol className={styles.ordered}>
-              <li>Open Google with the button on this page.</li>
-              <li>
-                Find Legacy on Lark at {siteConfig.address.formatted}.
-              </li>
-              <li>Choose Write a review, then send it.</li>
+              <li>Tap Write a Google review. It opens Google for this shop.</li>
+              <li>Confirm the listing is Legacy on Lark at {siteConfig.address.formatted}.</li>
+              <li>Write what the visit was actually like, then send it.</li>
             </ol>
             <p>
-              We ask guests who had any kind of visit, not only the glowing
-              ones. A few honest sentences are enough.
+              We ask every guest who has visited or ordered, including a visit
+              that was just okay. There is no discount, gift, or other reward
+              for a review.
             </p>
             <div className={styles.actions}>
               {reviewHref ? (
