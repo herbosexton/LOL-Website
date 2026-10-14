@@ -1,10 +1,13 @@
+import Link from "next/link";
 import { ImageHero } from "@/components/ui/ImageHero";
+import { imageAlt } from "@/lib/image-alts";
 import { createMetadata } from "@/lib/seo";
 import styles from "@/styles/pages.module.css";
 
 export const metadata = createMetadata({
   title: "Terms of Use",
-  description: "Terms of use for the Legacy on Lark website.",
+  description:
+    "Terms of use for the Legacy on Lark website. Adult-use cannabis information for guests 21 and older at the Albany dispensary on Lark Street.",
   path: "/terms",
 });
 
@@ -15,7 +18,7 @@ export default function TermsPage() {
         title="Terms of Use"
         copy="Adults 21+ only. Please consume responsibly."
         image="/images/og-default.jpg"
-        alt=""
+        alt={imageAlt.storefront}
         compact
       />
       <section className={styles.section}>
@@ -32,7 +35,8 @@ export default function TermsPage() {
           </p>
           <p>
             Legacy on Lark may update these terms as needed. Continued use of the site
-            constitutes acceptance of the current terms.
+            constitutes acceptance of the current terms. Questions about these terms can
+            go through the <Link className={styles.textLink} href="/contact">contact form</Link>.
           </p>
         </div>
       </section>

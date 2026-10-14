@@ -1,5 +1,13 @@
+import type { Metadata } from "next";
 import { Button } from "@/components/ui/Button";
 import styles from "@/styles/pages.module.css";
+
+export const metadata: Metadata = {
+  title: "Page Not Found",
+  description:
+    "That page is not on the Legacy on Lark website. Visit the Albany dispensary at 260 Lark Street, or return to the home page. Adults 21+ only.",
+  robots: { index: false, follow: true },
+};
 
 export default function NotFound() {
   return (
@@ -12,10 +20,13 @@ export default function NotFound() {
         </p>
         <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
           <Button href="/" variant="primary">
-            Back Home
+            Back to the Lark Street home
+          </Button>
+          <Button href="/shop" variant="outline">
+            Shop the menu
           </Button>
           <Button href="/contact" variant="outline">
-            Contact
+            Visit the shop
           </Button>
         </div>
       </div>

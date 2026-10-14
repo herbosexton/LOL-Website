@@ -59,3 +59,22 @@
 .body :global(ol) {
   padding-left: 1.25rem;
 }
+
+.related {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(43, 43, 43, 0.12);
+}
+
+.relatedLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+}
+
+.relatedLinks a {
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}

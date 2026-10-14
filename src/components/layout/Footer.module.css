@@ -23,9 +23,31 @@
   align-content: start;
 }
 
+.logoLink {
+  width: fit-content;
+}
+
 .brand img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
   border-radius: 999px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  letter-spacing: -0.02em;
+}
+
+.phone {
+  width: fit-content;
+  color: rgba(249, 247, 242, 0.72);
+  font-size: var(--text-sm);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
 }
 
 .address {

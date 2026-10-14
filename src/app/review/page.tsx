@@ -1,16 +1,18 @@
+import Link from "next/link";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Button } from "@/components/ui/Button";
 import { FAQAccordion } from "@/components/ui/FAQAccordion";
 import { ImageHero } from "@/components/ui/ImageHero";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { siteConfig } from "@/config/site";
+import { imageAlt } from "@/lib/image-alts";
 import { absoluteUrl } from "@/lib/utils";
 import { createMetadata, faqJsonLd, googleReviewHref, webPageJsonLd } from "@/lib/seo";
 import styles from "@/styles/pages.module.css";
 
-const title = "Leave a Google Review";
+const title = "Review the Albany Dispensary";
 const description =
-  "Leave a Google review for Legacy on Lark, the Albany dispensary at 260 Lark St. This page is the link to print as a counter QR code. Adults 21+.";
+  "Leave a Google review for Legacy on Lark, the dispensary at 260 Lark Street in Albany. This page is the link for the counter QR code. Adults 21+.";
 
 const faqs = [
   {
@@ -44,7 +46,7 @@ export default function ReviewPage() {
         title="Leave a Google review"
         copy="Every guest who has visited or ordered can leave a Google review. It helps the next person in Albany find the shop."
         image="/images/about/welcome.jpg"
-        alt="Guest and budtender at Legacy on Lark"
+        alt={imageAlt.budOverJar}
         compact
       />
 
@@ -64,6 +66,17 @@ export default function ReviewPage() {
               We ask every guest who has visited or ordered, including a visit
               that was just okay. There is no discount, gift, or other reward
               for a review.
+            </p>
+            <p>
+              Questions first?{" "}
+              <Link className={styles.textLink} href="/contact">
+                Visit the shop on Lark Street
+              </Link>{" "}
+              or{" "}
+              <Link className={styles.textLink} href="/about">
+                read about Legacy on Lark
+              </Link>
+              .
             </p>
             <div className={styles.actions}>
               {reviewHref ? (

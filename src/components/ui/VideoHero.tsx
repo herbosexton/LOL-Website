@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/Button";
 import { trackEvent } from "@/lib/analytics";
 import { getMenuHref, getMenuLabel, isExternalMenu } from "@/lib/menu";
 import { siteConfig } from "@/config/site";
+import { imageAlt } from "@/lib/image-alts";
 import styles from "./VideoHero.module.css";
 
 export function VideoHero() {
@@ -27,7 +28,7 @@ export function VideoHero() {
       <div className={styles.media} data-parallax="0.18">
         <Image
           src={hero.poster}
-          alt=""
+          alt={imageAlt.heroPoster}
           fill
           priority
           sizes="100vw"
@@ -35,7 +36,7 @@ export function VideoHero() {
         />
         <Image
           src={hero.mobilePoster}
-          alt=""
+          alt={imageAlt.heroMobile}
           fill
           priority
           sizes="100vw"

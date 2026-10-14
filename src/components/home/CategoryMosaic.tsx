@@ -12,14 +12,12 @@ export async function CategoryMosaic() {
     <section className={styles.section} aria-labelledby="categories-heading">
       <div className={styles.header}>
         <SectionHeading
+          id="categories-heading"
           align="center"
           eyebrow="The Menu"
           title={"What's on the shelf"}
           subtitle="Live inventory from the shop, grouped by category. Tap through to order."
         />
-        <h2 id="categories-heading" className="sr-only">
-          Product categories
-        </h2>
       </div>
 
       {liveCategories.length > 0 ? (

@@ -7,13 +7,14 @@ import { MapEmbed } from "@/components/ui/MapEmbed";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { StoreInfo } from "@/components/ui/StoreInfo";
 import { siteConfig } from "@/config/site";
+import { imageAlt } from "@/lib/image-alts";
 import { createMetadata, faqJsonLd } from "@/lib/seo";
 import styles from "@/styles/pages.module.css";
 
 export const metadata = createMetadata({
   title: "Visit the Albany Dispensary",
   description:
-    "Visit Legacy on Lark, the Albany dispensary at 260 Lark St, NY 12210. Hours, directions, and a message form. Adults 21+ with valid ID.",
+    "Visit Legacy on Lark at 260 Lark Street in Albany, NY 12210. Hours, directions, and a message form for the Center Square shop. Adults 21+ only.",
   path: "/contact",
 });
 
@@ -25,7 +26,7 @@ export default function ContactPage() {
         title="Visit the Albany dispensary"
         copy="260 Lark Street in Center Square. Questions about the store, menu, or the trip in? Send a note. Adults 21+ only."
         image="/images/about/community.jpg"
-        alt="Guests outside Legacy on Lark in Albany"
+        alt={imageAlt.prerollOverJar}
         compact
       />
 
@@ -40,6 +41,14 @@ export default function ContactPage() {
               <StoreInfo showActions />
             </div>
             <p style={{ marginTop: "1.25rem" }}>
+              <Link className={styles.textLink} href="/shop">
+                Shop the Lark Street menu
+              </Link>
+              {" · "}
+              <Link className={styles.textLink} href="/delivery">
+                Albany delivery
+              </Link>
+              {" · "}
               <Link className={styles.textLink} href="/review">
                 Leave a Google review
               </Link>

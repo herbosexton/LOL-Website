@@ -22,7 +22,10 @@ export default function Error({
             Try Again
           </Button>
           <Button href="/" variant="outline">
-            Home
+            Back to the Lark Street home
+          </Button>
+          <Button href="/contact" variant="outline">
+            Contact the shop
           </Button>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
+import { imageAlt } from "@/lib/image-alts";
 import { formatHoursRange } from "@/lib/hours";
 import styles from "./Footer.module.css";
 
@@ -12,19 +13,28 @@ export function Footer() {
       <div className={styles.inner}>
         <div className={styles.top}>
           <div className={styles.brand}>
-            <Image
-              src="/images/logo.jpg"
-              alt="Legacy on Lark"
-              width={64}
-              height={64}
-              unoptimized
-            />
+            <Link href="/" className={styles.logoLink} aria-label="Legacy on Lark home">
+              <Image
+                src="/images/logo.jpg"
+                alt={imageAlt.logo}
+                width={65}
+                height={64}
+                unoptimized
+                loading="lazy"
+              />
+            </Link>
+            <p className={styles.name}>{siteConfig.name}</p>
             <address className={styles.address}>
               {siteConfig.address.street}
               <br />
               {siteConfig.address.city}, {siteConfig.address.state}{" "}
               {siteConfig.address.postalCode}
             </address>
+            {siteConfig.phone ? (
+              <a className={styles.phone} href={`tel:${siteConfig.phone.replace(/\D/g, "")}`}>
+                {siteConfig.phone}
+              </a>
+            ) : null}
           </div>
 
           <div>

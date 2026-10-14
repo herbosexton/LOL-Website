@@ -8,6 +8,7 @@ export function SectionHeading({
   align = "left",
   tone = "dark",
   as: Tag = "h2",
+  id,
 }: {
   eyebrow?: string;
   title: string;
@@ -15,6 +16,7 @@ export function SectionHeading({
   align?: "left" | "center";
   tone?: "dark" | "light";
   as?: "h1" | "h2" | "h3";
+  id?: string;
 }) {
   return (
     <div
@@ -25,7 +27,7 @@ export function SectionHeading({
       )}
     >
       {eyebrow ? <span className="eyebrow">{eyebrow}</span> : null}
-      <Tag className={styles.title}>{title}</Tag>
+      <Tag id={id} className={styles.title}>{title}</Tag>
       {subtitle ? <p className={styles.subtitle}>{subtitle}</p> : null}
     </div>
   );

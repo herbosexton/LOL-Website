@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useId, useRef, useSyncExternalStore } from "react";
 import { siteConfig } from "@/config/site";
+import { imageAlt } from "@/lib/image-alts";
 import { Button } from "@/components/ui/Button";
 import styles from "./AgeGate.module.css";
 
@@ -98,8 +99,8 @@ export function AgeGate() {
       >
         <Image
           src="/images/logo.jpg"
-          alt="Legacy on Lark"
-          width={96}
+          alt={imageAlt.logo}
+          width={98}
           height={96}
           className={styles.logo}
           unoptimized

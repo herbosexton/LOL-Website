@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { siteConfig } from "@/config/site";
+import { imageAlt } from "@/lib/image-alts";
 import { MobileMenu } from "@/components/layout/MobileMenu";
 import { cn } from "@/lib/utils";
 import styles from "./Header.module.css";
@@ -66,8 +67,8 @@ export function Header() {
           <Link href="/" className={styles.logo} aria-label="Legacy on Lark home">
             <Image
               src="/images/logo.jpg"
-              alt="Legacy on Lark"
-              width={84}
+              alt={imageAlt.logo}
+              width={86}
               height={84}
               unoptimized
               priority
@@ -92,8 +93,8 @@ export function Header() {
           <Link href="/" className={styles.logo} aria-label="Legacy on Lark home">
             <Image
               src="/images/logo.jpg"
-              alt="Legacy on Lark"
-              width={64}
+              alt={imageAlt.logo}
+              width={65}
               height={64}
               unoptimized
               priority
