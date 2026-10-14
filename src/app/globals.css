@@ -114,6 +114,16 @@ ol {
   margin-bottom: var(--space-4);
 }
 
+.text-link {
+  color: var(--lol-green);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.text-link:hover {
+  color: var(--lol-green-deep);
+}
+
 .sr-only {
   position: absolute;
   width: 1px;

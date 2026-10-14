@@ -114,6 +114,55 @@
   font-size: var(--text-xl);
 }
 
+.crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  align-items: center;
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--lol-clay);
+}
+
+.crumbs a {
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.textLink {
+  color: var(--lol-green);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.textLink:hover {
+  color: var(--lol-green-deep);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.ordered {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0;
+  padding-left: 1.25rem;
+  color: rgba(43, 43, 43, 0.8);
+}
+
+.url {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  word-break: break-all;
+  color: var(--lol-charcoal);
+}
+
 @media (max-width: 900px) {
   .grid2,
   .grid3,

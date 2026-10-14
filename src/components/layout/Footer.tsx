@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
+import { formatHoursRange } from "@/lib/hours";
 import styles from "./Footer.module.css";
 
 export function Footer() {
@@ -27,23 +28,35 @@ export function Footer() {
           </div>
 
           <div>
-            <p className={styles.heading}>Explore</p>
-            <nav className={styles.links} aria-label="Footer">
-              {siteConfig.footerLinks.map((link) => (
-                <Link key={link.href} href={link.href}>
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
+            <div className={styles.group}>
+              <p className={styles.heading}>Explore</p>
+              <nav className={styles.links} aria-label="Footer">
+                {siteConfig.footerLinks.map((link) => (
+                  <Link key={link.href} href={link.href}>
+                    {link.label}
+                  </Link>
+                ))}
+              </nav>
+            </div>
+            <div className={styles.group}>
+              <p className={styles.heading}>Visit</p>
+              <nav className={styles.links} aria-label="Visit">
+                {siteConfig.visitLinks.map((link) => (
+                  <Link key={link.href} href={link.href}>
+                    {link.label}
+                  </Link>
+                ))}
+              </nav>
+            </div>
           </div>
 
           <div>
             <p className={styles.heading}>Hours</p>
             <ul className={styles.hours}>
               {siteConfig.hours.map((item) => (
-                <li key={item.label}>
-                  <span>{item.label}</span>
-                  <span>{item.value}</span>
+                <li key={item.day}>
+                  <span>{item.day}</span>
+                  <span>{formatHoursRange(item.opens, item.closes)}</span>
                 </li>
               ))}
             </ul>

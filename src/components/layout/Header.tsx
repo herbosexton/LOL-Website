@@ -15,6 +15,7 @@ const transparentRoutes = new Set([
   "/ai-guide",
   "/kulture",
   "/delivery",
+  "/review",
   "/news",
   "/contact",
   "/shop",
@@ -25,7 +26,8 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [menuPath, setMenuPath] = useState(pathname);
-  const canBeTransparent = transparentRoutes.has(pathname) || pathname.startsWith("/news/");
+  const canBeTransparent =
+    transparentRoutes.has(pathname) || pathname.startsWith("/news/");
 
   if (menuPath !== pathname) {
     setMenuPath(pathname);

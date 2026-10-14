@@ -18,7 +18,7 @@ import { createMetadata } from "@/lib/seo";
 import styles from "./home.module.css";
 
 export const metadata = createMetadata({
-  title: "Albany Cannabis Dispensary on Lark Street",
+  title: "Albany Dispensary on Lark Street",
   description: siteConfig.description,
   path: "/",
 });
@@ -53,6 +53,16 @@ export default function HomePage() {
               <p>
                 Come in for flower, edibles, vapes, drinks, and more. Stay for
                 straight talk and a shop that feels like home, not a hard sell.
+                If you searched for a dispensary near you, we are at 260 Lark
+                Street, one block from Washington Park and a short walk from
+                downtown.
+              </p>
+              <p>
+                Order for in-store pickup, or{" "}
+                <Link className="text-link" href="/delivery">
+                  delivery
+                </Link>{" "}
+                in the towns we already serve.
               </p>
               <Button href="/about" variant="outline">
                 Our story
@@ -183,11 +193,21 @@ export default function HomePage() {
       <section className={styles.visit}>
         <div className={styles.visitInner}>
           <Reveal variant="left">
-            <SectionHeading
-              eyebrow="Visit"
-              title="260 Lark Street"
-              subtitle="Center Square, Albany. Pickup in-store, delivery across the Capital Region."
-            />
+            <div>
+              <SectionHeading
+                eyebrow="Visit"
+                title="260 Lark Street"
+                subtitle="Center Square, Albany. In-store pickup, and delivery in the towns we already list."
+              />
+              <div className={styles.visitLinks}>
+                <Button href="/delivery" variant="outline">
+                  Delivery
+                </Button>
+                <Button href="/review" variant="outline">
+                  Leave a review
+                </Button>
+              </div>
+            </div>
           </Reveal>
           <Reveal variant="right" delay={2}>
             <StoreInfo />

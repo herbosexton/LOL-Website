@@ -6,6 +6,7 @@ import { Header } from "@/components/layout/Header";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { ScrollAtmosphere } from "@/components/motion/ScrollAtmosphere";
 import { siteConfig } from "@/config/site";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { localBusinessJsonLd } from "@/lib/seo";
 import "./globals.css";
 
@@ -57,12 +58,7 @@ export default function RootLayout({
         <AgeGate />
         <ScrollAtmosphere />
         <GoogleAnalytics />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(localBusinessJsonLd()),
-          }}
-        />
+        <JsonLd data={localBusinessJsonLd()} />
       </body>
     </html>
   );

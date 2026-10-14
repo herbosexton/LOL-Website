@@ -1,17 +1,18 @@
 import Image from "next/image";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { CTASection } from "@/components/ui/CTASection";
 import { FAQAccordion } from "@/components/ui/FAQAccordion";
 import { ImageHero } from "@/components/ui/ImageHero";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { siteConfig } from "@/config/site";
 import { getMenuHref, getMenuLabel, isExternalMenu } from "@/lib/menu";
-import { createMetadata } from "@/lib/seo";
+import { createMetadata, faqJsonLd } from "@/lib/seo";
 import styles from "@/styles/pages.module.css";
 
 export const metadata = createMetadata({
-  title: "Cannabis Delivery Albany & Capital Region",
+  title: "Dispensary Delivery in Albany",
   description:
-    "Order cannabis delivery from Legacy on Lark to Albany, Clifton Park, Latham, Schenectady, and Troy, NY. Adults 21+ with valid ID.",
+    "Dispensary delivery in Albany from Legacy on Lark, plus Clifton Park, Latham, Schenectady, and Troy. Pickup at 260 Lark St. Adults 21+ with valid ID.",
   path: "/delivery",
 });
 
@@ -22,8 +23,8 @@ export default function DeliveryPage() {
     <>
       <ImageHero
         eyebrow="Delivery"
-        title="Delivery across the Capital Region"
-        copy="Order online, get it brought to you in supported areas. Adults 21+ with valid ID at the door."
+        title="Dispensary delivery in Albany"
+        copy="Order online and get it brought to a supported town, or pick it up on Lark Street. Adults 21+ with valid ID."
         image="/images/delivery/hero.jpg"
         alt="Refined green backdrop introducing Legacy on Lark delivery"
       />
@@ -121,6 +122,14 @@ export default function DeliveryPage() {
           external: isExternalMenu(),
         }}
         secondary={{ label: "Contact", href: "/contact" }}
+      />
+      <JsonLd
+        data={faqJsonLd(
+          siteConfig.deliveryFaqs.map((item) => ({
+            question: item.question,
+            answer: item.answer,
+          })),
+        )}
       />
     </>
   );

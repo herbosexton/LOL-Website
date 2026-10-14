@@ -1,5 +1,6 @@
 import type {
   CategoryItem,
+  CitationProfile,
   EducationTopic,
   FaqItem,
   JobOpening,
@@ -19,7 +20,7 @@ export const siteConfig = {
   legalName: "Legacy on Lark",
   tagline: "Cannabis. Culture. Community.",
   description:
-    "Legacy on Lark is an adult-use cannabis dispensary at 260 Lark St in Albany, NY. Shop flower, edibles, vapes, drinks, and more, with in-store pickup and Capital Region delivery for adults 21+.",
+    "Adult-use Albany dispensary at 260 Lark St in Center Square. Flower, edibles, vapes, and drinks, with pickup and Capital Region delivery. Adults 21+.",
   url: process.env.NEXT_PUBLIC_SITE_URL?.trim() || "http://localhost:3000",
 
   address: {
@@ -39,14 +40,19 @@ export const siteConfig = {
   // Leave empty until confirmed, UI hides empty fields (do not invent).
   phone: "(518) 512-3232",
   email: "support@loldispensary.com",
+  /**
+   * Single source for on-page hours and LocalBusiness schema.
+   * Display text is formatted from opens/closes. Do not keep a second list.
+   * Confirmed from the public Google listing, Eastern time.
+   */
   hours: [
-    { label: "Monday", value: "8am-10pm" },
-    { label: "Tuesday", value: "8am-10pm" },
-    { label: "Wednesday", value: "8am-10pm" },
-    { label: "Thursday", value: "8am-10pm" },
-    { label: "Friday", value: "8am-11pm" },
-    { label: "Saturday", value: "9am-11pm" },
-    { label: "Sunday", value: "11am-6am" },
+    { day: "Monday", opens: "08:00", closes: "22:00" },
+    { day: "Tuesday", opens: "08:00", closes: "22:00" },
+    { day: "Wednesday", opens: "08:00", closes: "22:00" },
+    { day: "Thursday", opens: "08:00", closes: "22:00" },
+    { day: "Friday", opens: "08:00", closes: "23:00" },
+    { day: "Saturday", opens: "09:00", closes: "23:00" },
+    { day: "Sunday", opens: "10:00", closes: "18:00" },
   ] as StoreHours[],
 
   maps: {
@@ -61,6 +67,35 @@ export const siteConfig = {
   hasMenuUrl: Boolean(menuUrl),
 
   social: [] as SocialLink[],
+
+  /**
+   * TODO(Herbert): paste confirmed profile URLs. Empty hrefs are omitted from
+   * LocalBusiness sameAs. Do not guess Google, Instagram, Facebook, Weedmaps,
+   * Leafly, or Yelp links.
+   */
+  citationProfiles: [
+    { name: "Google Business Profile", href: "" },
+    { name: "Instagram", href: "" },
+    { name: "Facebook", href: "" },
+    { name: "Weedmaps", href: "" },
+    { name: "Leafly", href: "" },
+    { name: "Yelp", href: "" },
+  ] as CitationProfile[],
+
+  /**
+   * Official Google write-review URL for the verified Place ID.
+   * Herbert can replace this with a https://g.page/r/<id>/review short link
+   * from Business Profile if he prefers that share link.
+   * The counter QR still points at /review, not at this URL.
+   */
+  googleReviewUrl:
+    "https://search.google.com/local/writereview?placeid=ChIJqXE-01IL3okR31P57jKB12A",
+
+  /**
+   * TODO(Herbert): paste the OCM license number if it should appear in schema.
+   * Leave empty until you confirm it. Do not copy one from a directory.
+   */
+  licenseNumber: "",
 
   ageGate: {
     storageKey: "lol_age_verified",
@@ -89,8 +124,12 @@ export const siteConfig = {
     { label: "Kulture", href: "/kulture" },
     { label: "About", href: "/about" },
     { label: "News", href: "/news" },
-    { label: "Delivery", href: "/delivery" },
     { label: "Careers", href: "/careers" },
+  ] as NavLink[],
+
+  visitLinks: [
+    { label: "Delivery", href: "/delivery" },
+    { label: "Review", href: "/review" },
     { label: "Contact", href: "/contact" },
   ] as NavLink[],
 
@@ -111,6 +150,8 @@ export const siteConfig = {
   hero: {
     title: "Legacy on Lark",
     subtitle: "Cannabis. Culture. Community.",
+    eyebrow: "Center Square",
+    localLine: "Albany dispensary on Lark Street",
     primaryCta: { label: "Shop Now", href: menuUrl },
     secondaryCta: { label: "Our Story", href: "/about" },
     poster: "/images/hero-poster.jpg",
@@ -385,6 +426,18 @@ export const siteConfig = {
         "Legacy On Lark is located at 260 Lark Street, Albany, NY 12210.",
     },
     {
+      id: "albany-dispensary",
+      question: "Are you an Albany dispensary?",
+      answer:
+        "Yes. Legacy on Lark is an adult-use dispensary at 260 Lark Street, Albany, NY 12210, in Center Square. You must be 21 or older with a valid government-issued photo ID.",
+    },
+    {
+      id: "near",
+      question: "I am looking for a dispensary near me. Where are you?",
+      answer:
+        "The shop is at 260 Lark Street in Center Square, one block from Washington Park and a short walk from downtown. Delivery is available in the towns listed on the delivery page.",
+    },
+    {
       id: "age",
       question: "How old do you have to be to enter?",
       answer:
@@ -394,7 +447,7 @@ export const siteConfig = {
       id: "pickup-delivery",
       question: "Do you offer in-store pickup or delivery?",
       answer:
-        "Yes. In-store pickup is available for online orders. Delivery is also available through one of New York’s largest and longest-running cannabis delivery services.",
+        "Yes. In-store pickup is available for online orders at 260 Lark Street. Delivery is also available through one of New York’s largest and longest-running cannabis delivery services, in the towns listed on the delivery page.",
     },
     {
       id: "staff",

@@ -63,9 +63,12 @@ export function VideoHero() {
       <div className={styles.fade} aria-hidden />
       <div className={styles.content}>
         <p className={`${styles.eyebrowAnim} eyebrow`} style={{ color: "var(--lol-gold)" }}>
-          Albany, New York
+          {hero.eyebrow}
         </p>
-        <h1 className={styles.brand}>{hero.title}</h1>
+        <h1 className={styles.heading}>
+          <span className={styles.brand}>{hero.title}</span>
+          <span className={styles.localLine}>{hero.localLine}</span>
+        </h1>
         <p className={styles.subtitle}>{hero.subtitle}</p>
         <div className={styles.actions}>
           <Button
