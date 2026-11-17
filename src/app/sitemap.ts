@@ -2,6 +2,13 @@ import type { MetadataRoute } from "next";
 import { getAllArticles } from "@/lib/content/news";
 import { absoluteUrl } from "@/lib/utils";
 
+/** Match the canonical link Next renders when trailingSlash is false. */
+function canonicalUrl(path: string) {
+  const url = absoluteUrl(path);
+  if (path === "/") return url.replace(/\/$/, "");
+  return url;
+}
+
 const staticRoutes: Array<{
   path: string;
   priority: number;
@@ -25,14 +32,14 @@ const staticRoutes: Array<{
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
   const staticEntries = staticRoutes.map((route) => ({
-    url: absoluteUrl(route.path),
+    url: canonicalUrl(route.path),
     lastModified: now,
     changeFrequency: route.changeFrequency,
     priority: route.priority,
   }));
 
   const articleEntries = getAllArticles().map((article) => ({
-    url: absoluteUrl(`/news/${article.slug}`),
+    url: canonicalUrl(`/news/${article.slug}`),
     lastModified: new Date(article.date),
     changeFrequency: "yearly" as const,
     priority: 0.5,
