@@ -24,8 +24,6 @@ const montserrat = Montserrat({
   weight: ["400", "500", "600", "700"],
 });
 
-const verification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION?.trim();
-
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
@@ -33,7 +31,9 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
-  verification: verification ? { google: verification } : undefined,
+  verification: {
+    google: "_SR_ucmL3tfZvte8KU812aPR7iurHo2z_Tqjrni5tEM",
+  },
   openGraph: {
     type: "website",
     siteName: siteConfig.name,
