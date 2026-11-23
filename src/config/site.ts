@@ -57,11 +57,15 @@ export const siteConfig = {
   ] as StoreHours[],
 
   maps: {
+    // Directions, hasMap, and "Open in Google Maps" links. query_place_id
+    // is the verified listing, so these do not open a generic address search.
     google:
-      "https://www.google.com/maps/search/?api=1&query=260+Lark+St+Albany+NY+12210",
+      "https://www.google.com/maps/search/?api=1&query=Legacy%20on%20Lark%20260%20Lark%20St%20Albany%20NY&query_place_id=ChIJqXE-01IL3okR31P57jKB12A",
     apple: "https://maps.apple.com/?q=260+Lark+St,+Albany,+NY+12210",
+    // Keyless iframe. q is the business name plus address, and query_place_id
+    // pins the same verified listing. Do not add an API key.
     embed:
-      "https://maps.google.com/maps?q=260+Lark+St%2C+Albany%2C+NY+12210&z=16&output=embed",
+      "https://maps.google.com/maps?q=Legacy%20on%20Lark%20260%20Lark%20St%20Albany%20NY&query_place_id=ChIJqXE-01IL3okR31P57jKB12A&z=16&output=embed",
   },
 
   menuUrl,
@@ -70,12 +74,15 @@ export const siteConfig = {
   social: [] as SocialLink[],
 
   /**
-   * TODO(Herbert): paste confirmed profile URLs. Empty hrefs are omitted from
-   * LocalBusiness sameAs. Do not guess Google, Instagram, Facebook, Weedmaps,
-   * Leafly, or Yelp links.
+   * Confirmed profile URLs only. Empty hrefs are omitted from LocalBusiness
+   * sameAs. Google Business Profile is the verified listing. Do not guess
+   * Instagram, Facebook, Weedmaps, Leafly, or Yelp links.
    */
   citationProfiles: [
-    { name: "Google Business Profile", href: "" },
+    {
+      name: "Google Business Profile",
+      href: "https://www.google.com/maps/place/?q=place_id:ChIJqXE-01IL3okR31P57jKB12A",
+    },
     { name: "Instagram", href: "" },
     { name: "Facebook", href: "" },
     { name: "Weedmaps", href: "" },
