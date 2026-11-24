@@ -44,16 +44,16 @@ export const siteConfig = {
   /**
    * Single source for on-page hours and LocalBusiness schema.
    * Display text is formatted from opens/closes. Do not keep a second list.
-   * Confirmed from the public Google listing, Eastern time.
+   * America/New_York local time.
    */
   hours: [
     { day: "Monday", opens: "08:00", closes: "22:00" },
     { day: "Tuesday", opens: "08:00", closes: "22:00" },
     { day: "Wednesday", opens: "08:00", closes: "22:00" },
     { day: "Thursday", opens: "08:00", closes: "22:00" },
-    { day: "Friday", opens: "08:00", closes: "23:00" },
-    { day: "Saturday", opens: "09:00", closes: "23:00" },
-    { day: "Sunday", opens: "10:00", closes: "18:00" },
+    { day: "Friday", opens: "08:00", closes: "22:00" },
+    { day: "Saturday", opens: "09:00", closes: "22:00" },
+    { day: "Sunday", opens: "10:00", closes: "22:00" },
   ] as StoreHours[],
 
   maps: {
