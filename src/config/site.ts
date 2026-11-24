@@ -53,7 +53,7 @@ export const siteConfig = {
     { day: "Thursday", opens: "08:00", closes: "22:00" },
     { day: "Friday", opens: "08:00", closes: "22:00" },
     { day: "Saturday", opens: "09:00", closes: "22:00" },
-    { day: "Sunday", opens: "10:00", closes: "22:00" },
+    { day: "Sunday", opens: "10:00", closes: "18:00" },
   ] as StoreHours[],
 
   maps: {
