@@ -141,7 +141,12 @@ export function localBusinessJsonLd() {
     "@type": ["Store", "LocalBusiness"],
     "@id": id,
     name: siteConfig.name,
-    alternateName: ["LOL Dispensary", "Legacy On Lark"],
+    alternateName: [
+      "LOL Dispensary",
+      "Legacy On Lark",
+      "Legacy Dispensary",
+      "Legacy on Lark Dispensary",
+    ],
     description: siteConfig.description,
     url: siteConfig.url,
     image: absoluteUrl("/images/og-default.jpg"),
