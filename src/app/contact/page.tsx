@@ -12,9 +12,9 @@ import { createMetadata, faqJsonLd } from "@/lib/seo";
 import styles from "@/styles/pages.module.css";
 
 export const metadata = createMetadata({
-  title: "Visit the Albany Dispensary",
+  title: "Visit Legacy Dispensary in Albany",
   description:
-    "Visit Legacy on Lark at 260 Lark Street in Albany, NY 12210. Hours, directions, and a message form for the Center Square shop. Adults 21+ only.",
+    "Visit Legacy Dispensary, also called Legacy on Lark. This Albany dispensary is at 260 Lark Street, Albany, NY 12210. Hours and directions. Adults 21+.",
   path: "/contact",
 });
 

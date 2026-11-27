@@ -19,8 +19,9 @@ import { createMetadata } from "@/lib/seo";
 import styles from "./home.module.css";
 
 export const metadata = createMetadata({
-  title: "Albany Dispensary on Lark Street",
-  description: siteConfig.description,
+  title: "Legacy Dispensary on Lark Street",
+  description:
+    "Legacy Dispensary, also called Legacy on Lark, is an adult-use Albany dispensary at 260 Lark Street in Center Square. Pickup and delivery. Adults 21+.",
   path: "/",
 });
 
